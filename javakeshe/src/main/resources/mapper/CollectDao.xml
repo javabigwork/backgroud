@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctgu.javakeshe.dao.CollectDao">
+
+    <resultMap id="collectResultMap" type="com.ctgu.javakeshe.entity.Collect" >
+        <id property="id" column="id"/>
+        <result property="open_id" column="open_id"/>
+        <result property="isbn" column="isbn"/>
+    </resultMap>
+
+ <select id="selectAllByOpen_id"  resultMap="collectResultMap" parameterType="String">
+        select * from collect where open_id=#{open_id};
+</select>
+
+<insert id="addCollect" parameterType="Map">
+    insert into collect(open_id,isbn) values (#{open_id},#{isbn});
+</insert>
+
+<delete id="deleteCollect" parameterType="int">
+    delete from collect where id={#id};
+</delete>
+</mapper>
