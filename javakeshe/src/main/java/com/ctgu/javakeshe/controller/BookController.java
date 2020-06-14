@@ -3,6 +3,7 @@ package com.ctgu.javakeshe.controller;
 import com.ctgu.javakeshe.entity.Book;
 import com.ctgu.javakeshe.filter.AjaxResult;
 import com.ctgu.javakeshe.service.BookService;
+import com.ctgu.javakeshe.util.TencentCloud;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -49,10 +50,17 @@ public class BookController {
     }
 
 
-    @RequestMapping("/addBook")
-    public AjaxResult addBook(@RequestBody Book book,String path){
+    @PostMapping("/addBook")
+    public AjaxResult addBook(Book book){
         bookService.addBook(book);
-        System.out.println(path);
+        String[] tt=book.getBookImgPath().split("\\s+");
+        int sort = 1;
+        for(String s:tt)
+        {
+            String url = TencentCloud.Upload("images", "C:\\Users\\罗闯\\Desktop\\" + s);
+            bookService.addBookImg(book.getIsbn(),url,sort);
+            sort++;
+        }
         return AjaxResult.success("成功","success");
     }
 }

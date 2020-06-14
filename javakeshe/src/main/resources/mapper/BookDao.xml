@@ -89,4 +89,8 @@
         #{bookOldPrice},#{bookNewPrice},#{bookDiscount},#{bookCategoryId},
         #{bookStock},#{bookContent},#{bookSalesVolume});
     </insert>
+
+    <insert id="addBookImg" parameterType="map">
+        insert into book_img(isbn,url,sort) values (#{isbn},#{url},#{sort})
+    </insert>
 </mapper>

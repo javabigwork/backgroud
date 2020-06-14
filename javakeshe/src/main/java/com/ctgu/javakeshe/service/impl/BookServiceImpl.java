@@ -6,7 +6,10 @@ import com.ctgu.javakeshe.service.BookService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -38,5 +41,14 @@ public class BookServiceImpl implements BookService {
     public Book addBook(Book book) {
         this.bookDao.addBook(book);
         return book;
+    }
+
+    @Override
+    public void addBookImg(String isbn, String url, int sort) {
+        Map<String,Object> bookImgMap = new HashMap<>();
+        bookImgMap.put("isbn",isbn);
+        bookImgMap.put("url",url);
+        bookImgMap.put("sort",sort);
+        bookDao.addBookImg(bookImgMap);
     }
 }

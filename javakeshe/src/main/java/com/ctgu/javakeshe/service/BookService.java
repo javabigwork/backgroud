@@ -15,4 +15,6 @@ public interface BookService {
     int deleteBook(String isbn);
 
     Book addBook(Book book);
+
+    void addBookImg(String isbn, String url, int sort);
 }
