@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctgu.javakeshe.dao.AdressDao">
+    <resultMap id="AdressResultMap" type="com.ctgu.javakeshe.entity.Adress">
+        <id property="id" column="id"/>
+        <result property="consignee" column="consignee"/>
+        <result property="province" column="provinceName"/>
+        <result property="city" column="cityName"/>
+        <result property="country" column="countyName"/>
+        <result property="detail" column="detail_address"/>
+        <result property="openid" column="open_id"/>
+        <result property="phone" column="mobile"/>
+    </resultMap>
+    <select id="selectByOpenId" resultMap="AdressResultMap" parameterType="String">
+        select * from adress where open_id=#{openid};
+    </select>
+    <insert id="insertAdress" parameterMap="AdressResultMap">
+        insert adress values(#{consignee},#{province},#{city},#{country},#{detail},#{openid},#{phone});
+    </insert>
+
+</mapper>

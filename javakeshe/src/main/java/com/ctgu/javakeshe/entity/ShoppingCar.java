@@ -21,30 +21,19 @@ public class ShoppingCar {
     private String isbn;
     private Integer count;
     private Integer openid;
+    private Double price;
 
     public ShoppingCar(){}
 
-    public ShoppingCar(Integer id, String isbn, Integer count, Integer openid) {
-        this.id = id;
-        this.isbn = isbn;
-        this.count = count;
-        this.openid = openid;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public Integer getOpenid() {
-        return openid;
+    @Override
+    public String toString() {
+        return "ShoppingCar{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", count=" + count +
+                ", openid=" + openid +
+                ", price=" + price +
+                '}';
     }
 
     public void setId(Integer id) {
@@ -63,13 +52,35 @@ public class ShoppingCar {
         this.openid = openid;
     }
 
-    @Override
-    public String toString() {
-        return "ShoppingCar{" +
-                "id=" + id +
-                ", isbn='" + isbn + '\'' +
-                ", count=" + count +
-                ", openid=" + openid +
-                '}';
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public Integer getOpenid() {
+        return openid;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public ShoppingCar(Integer id, String isbn, Integer count, Integer openid, Double price) {
+        this.id = id;
+        this.isbn = isbn;
+        this.count = count;
+        this.openid = openid;
+        this.price = price;
     }
 }

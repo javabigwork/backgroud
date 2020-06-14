@@ -67,4 +67,10 @@ public OrderDetail(){}
         this.orderid = orderid;
         this.orderNum = orderNum;
     }
+    public OrderDetail( String isbn, String openid, Integer orderid, Integer orderNum) {
+        this.isbn = isbn;
+        this.openid = openid;
+        this.orderid = orderid;
+        this.orderNum = orderNum;
+    }
 }

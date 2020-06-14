@@ -17,6 +17,12 @@ public class Order {
         this.price = price;
         this.date = date;
     }
+    public Order( String openid, Integer status, Double price, String date) {
+        this.openid = openid;
+        this.status = status;
+        this.price = price;
+        this.date = date;
+    }
 
     public Order(){}
     @Override

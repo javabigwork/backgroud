@@ -9,4 +9,5 @@ public interface OrderService {
     List<Order> selectByOrderId(Integer orderid);
     void updateStatus(Integer orderid);
     void addOrder(Order order);
+    Order selectByOpenIdAndTime(String openid,String time);
 }

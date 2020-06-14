@@ -11,7 +11,7 @@
     <select id="selectByOpenId" resultMap="OrderDetailMap">
         select * from order_detail where open_id=#{openid};
     </select>
-    <insert id="addDetail" parameterType="OrderDetailMap">
+    <insert id="addDetail" parameterType="com.ctgu.javakeshe.entity.OrderDetail">
         insert into order_detail values(#{isbn},#{openid},#{orderid},#{orderNum})
     </insert>
     <select id="selectByOrderId" resultMap="OrderDetailMap">

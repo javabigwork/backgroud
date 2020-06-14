@@ -6,18 +6,21 @@
             <result property="openid" column="open_id"/>
             <result property="status" column="order_status"/>
             <result property="price" column="order_price"/>
-            <result property="date" column="datetime"/>
+            <result property="date" column="order_date"/>
     </resultMap>
-<select id="selectByOpenId" resultType="OrderResultMap" parameterType="Integer">
+<select id="selectByOpenId" resultMap="OrderResultMap" parameterType="String">
     select * from order where open_id=#{openid};
 </select>
-    <select id="selectByOrderId" resultType="OrderResultMap" parameterType="Integer">
+    <select id="selectByOrderId" resultMap="OrderResultMap" parameterType="Integer">
         select * from order where order_id=#{orderid};
     </select>
 <update id="updateStatus" parameterType="Integer">
     update order set order_status=1 where order_id=#{orderid};
 </update>
- <insert id="addOrder" parameterType="OrderResultMap">
-     insert order values(#{open_id},#{order_status},#{order_price,#{datetime});
+ <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
+     insert order values(#{open_id},#{order_status},#{order_price},#{datetime});
  </insert>
+    <select id="selectByOpenIdAndTime">
+        select * from order where open_id=#{openid},order_date=#{time}
+    </select>
 </mapper>

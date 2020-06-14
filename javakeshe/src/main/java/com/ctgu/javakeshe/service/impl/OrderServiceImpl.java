@@ -29,4 +29,9 @@ public class OrderServiceImpl implements OrderService {
     public void addOrder(Order order){
         orderDao.addOrder(order);
     }
+
+    @Override
+    public Order selectByOpenIdAndTime(String openid, String time){
+        return orderDao.selectByOpenIdAndTime(openid,time);
+    }
 }

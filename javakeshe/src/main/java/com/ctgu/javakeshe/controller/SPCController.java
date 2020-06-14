@@ -1,13 +1,16 @@
 package com.ctgu.javakeshe.controller;
 
 
+import com.ctgu.javakeshe.entity.Book;
 import com.ctgu.javakeshe.entity.Order;
 import com.ctgu.javakeshe.entity.OrderDetail;
 import com.ctgu.javakeshe.entity.ShoppingCar;
 import com.ctgu.javakeshe.filter.AjaxResult;
+import com.ctgu.javakeshe.service.BookService;
 import com.ctgu.javakeshe.service.OrderDetailService;
 import com.ctgu.javakeshe.service.OrderService;
 import com.ctgu.javakeshe.service.SPCService;
+import com.ctgu.javakeshe.util.TimeGet;
 import com.ctgu.javakeshe.util.separateUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,9 @@ public class SPCController {
     private OrderDetailService orderDetailService;
     @Resource
     private OrderService orderService;
+    @Resource
+    private BookService bookService;
+
     @RequestMapping("/deleteAll")
     public AjaxResult deleteAll(@RequestParam("openid")String openid){
         try {
@@ -92,9 +98,10 @@ public class SPCController {
     @RequestMapping("/buy")
     public AjaxResult buyBooks(@RequestParam("openId")String openid,
                                @RequestParam("buylist")List<Integer> buy){
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
-        String time=dateFormat.format(new Date());
+       String time= TimeGet.timeget();
         try {
+            List<Book> list2=null;
+
             List<ShoppingCar> list1 = spcService.selectAll(openid);
             Order order=new Order();
             order.setDate(time);
