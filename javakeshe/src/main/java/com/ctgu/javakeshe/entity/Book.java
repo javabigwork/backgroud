@@ -15,6 +15,7 @@ public class Book {
     private Integer bookStock;
     private String bookContent;
     private Integer bookSalesVolume;
+    private String bookImgPath;
     private List<BookImg> bookImgList;
 
     public List<BookImg> getBookImgList() {
@@ -23,6 +24,14 @@ public class Book {
 
     public void setBookImgList(List<BookImg> bookImgList) {
         this.bookImgList = bookImgList;
+    }
+
+    public String getBookImgPath() {
+        return bookImgPath;
+    }
+
+    public void setBookImgPath(String bookImgPath) {
+        this.bookImgPath = bookImgPath;
     }
 
     public String getIsbn() {
@@ -115,7 +124,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "book{" +
+        return "Book{" +
                 "isbn='" + isbn + '\'' +
                 ", bookTitle='" + bookTitle + '\'' +
                 ", bookName='" + bookName + '\'' +
@@ -127,10 +136,12 @@ public class Book {
                 ", bookStock=" + bookStock +
                 ", bookContent='" + bookContent + '\'' +
                 ", bookSalesVolume=" + bookSalesVolume +
+                ", bookImgPath='" + bookImgPath + '\'' +
+                ", bookImgList=" + bookImgList +
                 '}';
     }
 
-    public Book(String isbn, String bookTitle, String bookName, String bookAuthor, double bookOldPrice, double bookNewPrice, double bookDiscount, Integer bookCategoryId, Integer bookStock, String bookContent, Integer bookSalesVolume, List<BookImg> bookImgList) {
+    public Book(String isbn, String bookTitle, String bookName, String bookAuthor, double bookOldPrice, double bookNewPrice, double bookDiscount, Integer bookCategoryId, Integer bookStock, String bookContent, Integer bookSalesVolume, String bookImgPath, List<BookImg> bookImgList) {
         this.isbn = isbn;
         this.bookTitle = bookTitle;
         this.bookName = bookName;
@@ -142,6 +153,7 @@ public class Book {
         this.bookStock = bookStock;
         this.bookContent = bookContent;
         this.bookSalesVolume = bookSalesVolume;
+        this.bookImgPath = bookImgPath;
         this.bookImgList = bookImgList;
     }
 
