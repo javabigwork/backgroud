@@ -9,4 +9,12 @@ import java.util.List;
 public interface BookDao {
 
     List<Book> selectAll();
+
+    Book selectOneBook(String isbn);
+
+    int updateBook(Book book);
+
+    int deleteBook(String isbn);
+
+    int addBook(Book book);
 }

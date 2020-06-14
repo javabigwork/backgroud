@@ -7,4 +7,12 @@ import java.util.List;
 public interface BookService {
 
     List<Book> selectAll();
+
+    Book selectOneBook(String isbn);
+
+    Book updateBook(Book book);
+
+    int deleteBook(String isbn);
+
+    Book addBook(Book book);
 }
