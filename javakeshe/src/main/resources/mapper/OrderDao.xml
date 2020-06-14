@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctgu.javakeshe.dao.OrderDao">
+    <resultMap id="OrderResultMap" type="com.ctgu.javakeshe.entity.Order">
+            <id property="orderid" column="order_id"/>
+            <result property="openid" column="open_id"/>
+            <result property="status" column="order_status"/>
+            <result property="price" column="order_price"/>
+            <result property="date" column="datetime"/>
+    </resultMap>
+<select id="selectByOpenId" resultType="OrderResultMap" parameterType="Integer">
+    select * from order where open_id=#{openid};
+</select>
+    <select id="selectByOrderId" resultType="OrderResultMap" parameterType="Integer">
+        select * from order where order_id=#{orderid};
+    </select>
+<update id="updateStatus" parameterType="Integer">
+    update order set order_status=1;
+</update>
+ <insert id="addOrder" parameterType="OrderResultMap">
+     insert order values(#{open_id},#{order_status},#{order_price,#{datetime});
+ </insert>
+</mapper>

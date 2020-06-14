@@ -1,0 +1,14 @@
+package com.ctgu.javakeshe.service;
+
+import com.ctgu.javakeshe.entity.ShoppingCar;
+
+import java.util.List;
+
+public interface SPCService {
+    void deleteAll(String opendid);
+    void deleteOne(Integer id);
+    void addCount (Integer id);
+    void minusCount(Integer id);
+    void addSPC(ShoppingCar SPC);
+    List<ShoppingCar> selectAll(Integer openid);
+}
