@@ -26,4 +26,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     public void addDetail(OrderDetail orderDetail){
         orderDao.addDetail(orderDetail);
     }
+
+
+    @Override
+    public List<OrderDetail> selectByOrderId(Integer order){
+        return orderDao.selectByOrderId(order);
+    }
 }

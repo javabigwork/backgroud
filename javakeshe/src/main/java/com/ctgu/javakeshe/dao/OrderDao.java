@@ -10,6 +10,6 @@ import java.util.List;
 public interface OrderDao {
     List<Order> selectByOpenId(String openid);
     List<Order> selectByOrderId(Integer orderid);
-    void updateStatus(String openid);
+    void updateStatus(Integer orderid);
     void addOrder(Order order);
 }

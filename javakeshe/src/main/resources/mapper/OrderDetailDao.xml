@@ -14,5 +14,8 @@
     <insert id="addDetail" parameterType="OrderDetailMap">
         insert into order_detail values(#{isbn},#{openid},#{orderid},#{orderNum})
     </insert>
+    <select id="selectByOrderId" resultMap="OrderDetailMap">
+        select * from order_detail where order_id=#{orderid};
+    </select>
     
 </mapper>

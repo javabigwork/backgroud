@@ -1,15 +1,22 @@
 package com.ctgu.javakeshe.controller;
 
 
+import com.ctgu.javakeshe.entity.Order;
+import com.ctgu.javakeshe.entity.OrderDetail;
 import com.ctgu.javakeshe.entity.ShoppingCar;
 import com.ctgu.javakeshe.filter.AjaxResult;
+import com.ctgu.javakeshe.service.OrderDetailService;
+import com.ctgu.javakeshe.service.OrderService;
 import com.ctgu.javakeshe.service.SPCService;
+import com.ctgu.javakeshe.util.separateUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -18,6 +25,10 @@ import java.util.List;
 public class SPCController {
     @Resource
     private SPCService spcService;
+    @Resource
+    private OrderDetailService orderDetailService;
+    @Resource
+    private OrderService orderService;
     @RequestMapping("/deleteAll")
     public AjaxResult deleteAll(@RequestParam("openid")String openid){
         try {
@@ -69,15 +80,34 @@ public class SPCController {
     }
 
     @RequestMapping("/selectAll")
-    public AjaxResult selectAll(@RequestParam("openid")Integer openid){
+    public AjaxResult selectAll(@RequestParam("openid")String openid){
         try{
             List list=spcService.selectAll(openid);
-            return AjaxResult.success();
+            return AjaxResult.success("查找成功",list);
         }catch (Exception e){
             return AjaxResult.fail();
         }
     }
 
     @RequestMapping("/buy")
-    public AjaxResult
+    public AjaxResult buyBooks(@RequestParam("openId")String openid,
+                               @RequestParam("buylist")List<Integer> buy){
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        String time=dateFormat.format(new Date());
+        try {
+            List<ShoppingCar> list1 = spcService.selectAll(openid);
+            Order order=new Order();
+            order.setDate(time);
+            order.setOpenid(openid);
+            Integer total=0;
+            for(ShoppingCar s:list1){
+//                total+=s.getCount()*s.
+            }
+//            order.getPrice()
+//            orderService.addOrder(new );
+            return AjaxResult.success();
+        }catch (Exception e){
+            return AjaxResult.fail();
+        }
+    }
 }

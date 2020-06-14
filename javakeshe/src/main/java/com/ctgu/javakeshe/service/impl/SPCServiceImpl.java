@@ -33,7 +33,7 @@ public class SPCServiceImpl implements SPCService {
         spcDao.addSPC(SPC);
     }
     @Override
-    public List<ShoppingCar> selectAll(Integer openid){
+    public List<ShoppingCar> selectAll(String openid){
         return spcDao.selectAll();
     }
 

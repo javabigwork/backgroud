@@ -22,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.selectByOrderId(orderid);
     }
     @Override
-    public void updateStatus(String openid){
+    public void updateStatus(Integer openid){
         orderDao.updateStatus(openid);
     }
     @Override

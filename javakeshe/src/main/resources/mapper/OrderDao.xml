@@ -15,7 +15,7 @@
         select * from order where order_id=#{orderid};
     </select>
 <update id="updateStatus" parameterType="Integer">
-    update order set order_status=1;
+    update order set order_status=1 where order_id=#{orderid};
 </update>
  <insert id="addOrder" parameterType="OrderResultMap">
      insert order values(#{open_id},#{order_status},#{order_price,#{datetime});
