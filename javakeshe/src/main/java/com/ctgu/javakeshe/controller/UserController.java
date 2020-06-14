@@ -5,6 +5,7 @@ import com.ctgu.javakeshe.entity.User;
 import com.ctgu.javakeshe.filter.AjaxResult;
 import com.ctgu.javakeshe.service.BookService;
 import com.ctgu.javakeshe.service.UserService;
+import com.ctgu.javakeshe.util.TencentCloud;
 import com.ctgu.javakeshe.util.jsontomapUtil;
 import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
@@ -13,9 +14,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -30,8 +29,11 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @RequestMapping("/login")
-    public AjaxResult login(String code, String APPID, String APPSecret){
+    private String APPID = "wx1db424713c1d46cb";
+    private String APPSecret = "a753e1f29af3e6884878fb14660591b5";
+    TencentCloud tencentCloud = new TencentCloud();
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public AjaxResult login(@RequestBody String code){
         StringBuilder url = new StringBuilder("https://api.weixin.qq.com/sns/jscode2session?");
         url.append("appid=");//appid设置
         url.append(APPID);
@@ -56,14 +58,18 @@ public class UserController {
         }
         String key = "openid";
         String openId = (String) map.get(key);
+        System.out.println(openId);
         User user = new User();
         user = userService.findById(openId);
         if(user == null){
+            user = new User();
             user.setOpenId(openId);
             userService.creatUser(user);
         }else {
             userService.saveUser(user);
         }
+        System.out.println(map);
+        System.out.println(AjaxResult.success("成功",map));
         return AjaxResult.success("成功",map);
     }
 

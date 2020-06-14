@@ -11,10 +11,10 @@
 
 
 
-    <select id="selectById" resultType="User">
+    <select id="selectById" resultMap="userResultMap">
         select
         *
-        from user u
+        from user
         where
         open_id = #{openId};
     </select>

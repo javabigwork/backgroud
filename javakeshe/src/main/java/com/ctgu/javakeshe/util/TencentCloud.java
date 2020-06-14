@@ -12,8 +12,8 @@ import java.io.File;
 import java.util.UUID;
 
 public class TencentCloud {
-    private static String secretId = "AKIDDQOp8CMjHchVigsP8QU6RWL1a0FHMqQq";
-    private static String secretKey = "OFqOgmb9TXKrXwsZzED2jdIRJut88tUy";
+    private static final String secretId = "AKIDDQOp8CMjHchVigsP8QU6RWL1a0FHMqQq";
+    private static final String secretKey = "OFqOgmb9TXKrXwsZzED2jdIRJut88tUy";
     private static final String localHost = "https://bucket-1259702869.cos.ap-chengdu.myqcloud.com";
     public static String Upload(String localPackge,String localFilePath){
         COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
