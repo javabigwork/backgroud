@@ -11,4 +11,5 @@ public interface SPCService {
     void minusCount(Integer id);
     void addSPC(ShoppingCar SPC);
     List<ShoppingCar> selectAll(String openid);
+    ShoppingCar selectById(Integer id);
 }

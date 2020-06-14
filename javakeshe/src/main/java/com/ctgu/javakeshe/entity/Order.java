@@ -1,30 +1,14 @@
 package com.ctgu.javakeshe.entity;
 
 
-import java.util.Date;
-
 public class Order {
     private Integer orderid;
     private String openid;
     private Integer status;
     private Double price;
     private String date;
+    private Integer addid;
 
-    public Order(Integer orderid, String openid, Integer status, Double price, String date) {
-        this.orderid = orderid;
-        this.openid = openid;
-        this.status = status;
-        this.price = price;
-        this.date = date;
-    }
-    public Order( String openid, Integer status, Double price, String date) {
-        this.openid = openid;
-        this.status = status;
-        this.price = price;
-        this.date = date;
-    }
-
-    public Order(){}
     @Override
     public String toString() {
         return "Order{" +
@@ -33,6 +17,7 @@ public class Order {
                 ", status=" + status +
                 ", price=" + price +
                 ", date='" + date + '\'' +
+                ", addid=" + addid +
                 '}';
     }
 
@@ -56,6 +41,10 @@ public class Order {
         this.date = date;
     }
 
+    public void setAddid(Integer addid) {
+        this.addid = addid;
+    }
+
     public Integer getOrderid() {
         return orderid;
     }
@@ -74,5 +63,25 @@ public class Order {
 
     public String getDate() {
         return date;
+    }
+
+    public Integer getAddid() {
+        return addid;
+    }
+
+    public Order(Integer orderid, String openid, Integer status, Double price, String date, Integer addid) {
+        this.orderid = orderid;
+        this.openid = openid;
+        this.status = status;
+        this.price = price;
+        this.date = date;
+        this.addid = addid;
+    }
+    public Order( String openid, Integer status, Double price, String date, Integer addid){
+        this.openid = openid;
+        this.status = status;
+        this.price = price;
+        this.date = date;
+        this.addid = addid;
     }
 }

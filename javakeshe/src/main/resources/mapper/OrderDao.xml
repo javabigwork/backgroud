@@ -7,6 +7,7 @@
             <result property="status" column="order_status"/>
             <result property="price" column="order_price"/>
             <result property="date" column="order_date"/>
+        <result property="addid" column="add_id"/>
     </resultMap>
 <select id="selectByOpenId" resultMap="OrderResultMap" parameterType="String">
     select * from order where open_id=#{openid};
@@ -18,7 +19,7 @@
     update order set order_status=1 where order_id=#{orderid};
 </update>
  <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
-     insert order values(#{open_id},#{order_status},#{order_price},#{datetime});
+     insert order values(#{openid},#{status},#{price},#{time},#{addid});
  </insert>
     <select id="selectByOpenIdAndTime">
         select * from order where open_id=#{openid},order_date=#{time}

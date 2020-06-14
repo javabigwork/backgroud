@@ -11,7 +11,7 @@ package com.ctgu.javakeshe.entity;
 //          `detail_address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
 
 
-public class Adress {
+public class Address {
     private Integer id;
     private String consignee;
     private String province;
@@ -20,7 +20,7 @@ public class Adress {
     private String detail;
     private String openid;
     private String phone;
-    public Adress(){}
+    public Address(){}
 
     @Override
     public String toString() {
@@ -100,7 +100,7 @@ public class Adress {
         return phone;
     }
 
-    public Adress(Integer id, String consignee, String province, String city, String country, String detail, String openid, String phone) {
+    public Address(Integer id, String consignee, String province, String city, String country, String detail, String openid, String phone) {
         this.id = id;
         this.consignee = consignee;
         this.province = province;

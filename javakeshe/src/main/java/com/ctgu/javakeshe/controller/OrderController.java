@@ -1,17 +1,16 @@
 package com.ctgu.javakeshe.controller;
 
 
-import com.ctgu.javakeshe.entity.Adress;
+import com.ctgu.javakeshe.entity.Address;
 import com.ctgu.javakeshe.entity.Book;
 import com.ctgu.javakeshe.entity.Order;
 import com.ctgu.javakeshe.entity.OrderDetail;
 import com.ctgu.javakeshe.filter.AjaxResult;
-import com.ctgu.javakeshe.service.AdressService;
+import com.ctgu.javakeshe.service.AddressService;
 import com.ctgu.javakeshe.service.BookService;
 import com.ctgu.javakeshe.service.OrderDetailService;
 import com.ctgu.javakeshe.service.OrderService;
 import com.ctgu.javakeshe.util.TimeGet;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,7 +23,7 @@ public class OrderController {
     @Resource
     private BookService bookService;
     @Resource
-    private AdressService adressService;
+    private AddressService adressService;
     @Resource
     private OrderService orderService;
     @Resource
@@ -87,9 +86,9 @@ public class OrderController {
             Book book = bookService.selectOneBook(isbn);
             Double money=0.0;
             money=book.getBookNewPrice()*num;
-            List<Adress> list=adressService.selectByOpenId(openid);
+            List<Address> list=adressService.selectByOpenId(openid);
             String time= TimeGet.timeget();
-            orderService.addOrder(new Order(openid,0, money, time));
+            orderService.addOrder(new Order(openid,0, money, time,list.indexOf(0)));
             Order order=orderService.selectByOpenIdAndTime(openid,time);
             OrderDetail orderDetail=new OrderDetail();
             orderDetailService.addDetail(new OrderDetail(isbn, openid, order.getOrderid(),  num));

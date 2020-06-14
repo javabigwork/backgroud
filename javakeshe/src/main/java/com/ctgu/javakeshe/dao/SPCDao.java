@@ -14,4 +14,5 @@ public interface SPCDao {
     void minusCount(Integer id);
     void addSPC(ShoppingCar SPC);
     List<ShoppingCar> selectAll();
+    ShoppingCar selectById(Integer id);
 }

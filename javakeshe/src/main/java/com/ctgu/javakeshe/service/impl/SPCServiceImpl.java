@@ -36,5 +36,9 @@ public class SPCServiceImpl implements SPCService {
     public List<ShoppingCar> selectAll(String openid){
         return spcDao.selectAll();
     }
+    @Override
+    public ShoppingCar selectById(Integer id){
+        return spcDao.selectById(id);
+    }
 
 }

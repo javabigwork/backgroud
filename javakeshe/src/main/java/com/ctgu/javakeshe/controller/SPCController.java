@@ -1,25 +1,19 @@
 package com.ctgu.javakeshe.controller;
 
 
-import com.ctgu.javakeshe.entity.Book;
+import com.ctgu.javakeshe.entity.Address;
 import com.ctgu.javakeshe.entity.Order;
 import com.ctgu.javakeshe.entity.OrderDetail;
 import com.ctgu.javakeshe.entity.ShoppingCar;
 import com.ctgu.javakeshe.filter.AjaxResult;
-import com.ctgu.javakeshe.service.BookService;
-import com.ctgu.javakeshe.service.OrderDetailService;
-import com.ctgu.javakeshe.service.OrderService;
-import com.ctgu.javakeshe.service.SPCService;
+import com.ctgu.javakeshe.service.*;
 import com.ctgu.javakeshe.util.TimeGet;
-import com.ctgu.javakeshe.util.separateUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -34,6 +28,8 @@ public class SPCController {
     private OrderService orderService;
     @Resource
     private BookService bookService;
+    @Resource
+    private AddressService addressService;
 
     @RequestMapping("/deleteAll")
     public AjaxResult deleteAll(@RequestParam("openid")String openid){
@@ -100,18 +96,22 @@ public class SPCController {
                                @RequestParam("buylist")List<Integer> buy){
        String time= TimeGet.timeget();
         try {
-            List<Book> list2=null;
-
-            List<ShoppingCar> list1 = spcService.selectAll(openid);
-            Order order=new Order();
-            order.setDate(time);
-            order.setOpenid(openid);
-            Integer total=0;
-            for(ShoppingCar s:list1){
-//                total+=s.getCount()*s.
+            Double total=0.0;
+            List<ShoppingCar> list3=null;
+            for(Integer i:buy){
+                ShoppingCar spc=null;
+                spc=spcService.selectById(i);
+                total+=spc.getCount()*spc.getPrice();
+                list3.add(spc);
             }
-//            order.getPrice()
-//            orderService.addOrder(new );
+            List<Address> add=addressService.selectByOpenId(openid);
+            orderService.addOrder(new Order(openid,0, total, time, list3.indexOf(0)));
+            Order order=orderService.selectByOpenIdAndTime(openid,time);
+            for(ShoppingCar s:list3){
+                orderDetailService.addDetail(new OrderDetail(s.getIsbn(),
+                        openid, order.getOrderid(), s.getCount()));
+                spcService.deleteOne(s.getId());
+            }
             return AjaxResult.success();
         }catch (Exception e){
             return AjaxResult.fail();
