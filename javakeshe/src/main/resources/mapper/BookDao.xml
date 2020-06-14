@@ -45,4 +45,52 @@
         on b.isbn = bi.isbn
     </select>
 
+    <select id="selectOneBook" resultMap="bookResultMap" parameterType="java.lang.String">
+        select
+        b.isbn,
+        b.book_title,
+        b.book_name,
+        b.book_author,
+        b.book_old_price,
+        b.book_new_price,
+        b.book_discount,
+        b.book_category_id,
+        b.book_stock,
+        b.book_content,
+        b.book_sales_volume,
+        bi.url,
+        bi.sort
+        from book b inner join book_img bi
+        on b.isbn = bi.isbn
+        where b.isbn = #{isbn}
+    </select>
+    
+    <update id="updateBook">
+        update book set
+        book_title = #{bookTitle},
+        book_name = #{bookName},
+        book_author = #{bookAuthor},
+        book_old_price = #{bookOldPrice},
+        book_new_price = #{bookNewPrice},
+        book_discount = #{bookDiscount},
+        book_category_id = #{bookCategoryId},
+        book_stock = #{bookStock},
+        book_content = #{bookContent},
+        book_sales_volume = #{bookSalesVolume}
+        where isbn = #{isbn}
+    </update>
+
+    <delete id="deleteBook" parameterType="java.lang.String">
+        delete from book where isbn = #{isbn}
+    </delete>
+
+    <insert id="addBook" parameterType="com.ctgu.javakeshe.entity.Book">
+        insert into book values(#{isbn},#{bookTitle},#{bookName},#{bookAuthor},
+        #{bookOldPrice},#{bookNewPrice},#{bookDiscount},#{bookCategoryId},
+        #{bookStock},#{bookContent},#{bookSalesVolume});
+    </insert>
+
+    <insert id="addBookImg" parameterType="map">
+        insert into book_img(isbn,url,sort) values (#{isbn},#{url},#{sort})
+    </insert>
 </mapper>
