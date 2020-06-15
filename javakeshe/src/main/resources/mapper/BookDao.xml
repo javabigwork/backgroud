@@ -4,7 +4,6 @@
 
     <resultMap type="com.ctgu.javakeshe.entity.Book" id="bookResultMap">
         <id property="isbn" column="isbn"/>
-
         <result property="bookTitle" column="book_title" />
         <result property="bookName" column="book_name" />
         <result property="bookAuthor" column="book_author" />

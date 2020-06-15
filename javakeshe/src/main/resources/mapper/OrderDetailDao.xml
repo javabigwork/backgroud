@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctgu.javakeshe.dao.OrderDetailDao">
+    <resultMap id="OrderDetailMap" type="com.ctgu.javakeshe.entity.OrderDetail">
+        <id property="id" column="id"/>
+        <result property="isbn" column="isbn"/>
+        <result property="openid" column="open_id"/>
+        <result property="orderid" column="order_id"/>
+        <result property="orderNum" column="order_num"/>
+    </resultMap>
+    <select id="selectByOpenId" resultMap="OrderDetailMap">
+        select * from order_detail where open_id=#{openid};
+    </select>
+    <insert id="addDetail" parameterType="com.ctgu.javakeshe.entity.OrderDetail">
+        insert into order_detail values(#{isbn},#{openid},#{orderid},#{orderNum})
+    </insert>
+    <select id="selectByOrderId" resultMap="OrderDetailMap">
+        select * from order_detail where order_id=#{orderid};
+    </select>
+    
+</mapper>
