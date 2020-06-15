@@ -27,4 +27,7 @@
     <select id="selectByOpenIdAndTime">
         select * from `order` where open_id=#{openid},order_date=#{time}
     </select>
+    <select id="selectAll" resultMap="OrderResultMap">
+        select * from `order`;
+    </select>
 </mapper>

@@ -39,4 +39,9 @@ public class OrderServiceImpl implements OrderService {
     public void getCargo(Integer orderid){
         orderDao.getCargo(orderid);
     }
+
+    @Override
+    public List<Order> selectAll(){
+        return orderDao.selectAll();
+    }
 }

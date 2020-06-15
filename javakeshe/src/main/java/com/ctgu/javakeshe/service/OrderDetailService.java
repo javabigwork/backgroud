@@ -8,4 +8,5 @@ public interface OrderDetailService {
     List<OrderDetail> selectByOpenId(String openid);
     void addDetail(OrderDetail orderDetail);
     List<OrderDetail> selectByOrderId(Integer orderid);
+
 }

@@ -11,4 +11,5 @@ public interface OrderService {
     void addOrder(Order order);
     Order selectByOpenIdAndTime(String openid,String time);
     void getCargo(Integer orderid);
+    List<Order> selectAll();
 }
