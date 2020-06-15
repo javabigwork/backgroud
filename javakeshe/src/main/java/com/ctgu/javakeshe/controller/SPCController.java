@@ -32,7 +32,7 @@ public class SPCController {
     private AddressService addressService;
 
     @RequestMapping("/deleteAll")
-    public AjaxResult deleteAll(@RequestParam("openid")String openid){
+    public AjaxResult deleteAll(String openid){
         try {
             spcService.deleteAll(openid);
             return AjaxResult.success();
@@ -42,7 +42,7 @@ public class SPCController {
     }
 
     @RequestMapping("/deleteOne")
-    public AjaxResult deleteOne(@RequestParam("id")Integer id){
+    public AjaxResult deleteOne(Integer id){
         try {
             spcService.deleteOne(id);
             return AjaxResult.success();
@@ -51,7 +51,7 @@ public class SPCController {
         }
     }
 
-    @RequestMapping("/AddCount")
+    @RequestMapping("/addCount")
     public AjaxResult AddCount(@RequestParam("id")Integer id){
         try {
             spcService.addCount(id);
@@ -61,7 +61,7 @@ public class SPCController {
         }
     }
 
-    @RequestMapping("/MinusCount")
+    @RequestMapping("/minusCount")
     public AjaxResult MinusCount(@RequestParam("id")Integer id){
         try{
             spcService.minusCount(id);
@@ -71,7 +71,7 @@ public class SPCController {
         }
     }
 
-    @RequestMapping("/Add")
+    @RequestMapping("/add")
     public AjaxResult Add(@RequestParam("SPC")ShoppingCar SPC){
         try{
             spcService.addSPC(SPC);

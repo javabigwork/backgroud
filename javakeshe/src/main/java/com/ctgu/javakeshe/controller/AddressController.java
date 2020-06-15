@@ -37,7 +37,7 @@ public class AddressController {
             return AjaxResult.fail();
         }
     }
-    @RequestMapping("/AllAddress")
+    @RequestMapping("/allAddress")
     public AjaxResult selectAll(String id){
         try{
             List<Address> list= addressService.selectByOpenId(id);

@@ -10,21 +10,21 @@
         <result property="addid" column="add_id"/>
     </resultMap>
 <select id="selectByOpenId" resultMap="OrderResultMap" parameterType="String">
-    select * from order where open_id=#{openid};
+    select * from `order` where open_id=#{openid};
 </select>
     <select id="selectByOrderId" resultMap="OrderResultMap" parameterType="Integer">
-        select * from order where order_id=#{orderid};
+        select * from `order` where order_id=#{orderid};
     </select>
 <update id="updateStatus" parameterType="Integer">
-    update order set order_status=1 where order_id=#{orderid};
+    update `order` set order_status=1 where order_id=#{orderid};
 </update>
   <update id="getCargo" parameterType="Integer">
-      update or set order_status=2 where order_id=#{orderid};
+      update `order` set order_status=2 where order_id=#{orderid};
   </update>
  <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
-     insert order values(#{openid},#{status},#{price},#{time},#{addid});
+     insert `order` values(#{openid},#{status},#{price},#{time},#{addid});
  </insert>
     <select id="selectByOpenIdAndTime">
-        select * from order where open_id=#{openid},order_date=#{time}
+        select * from `order` where open_id=#{openid},order_date=#{time}
     </select>
 </mapper>

@@ -74,11 +74,12 @@ public class OrderController {
             List<Order> list=orderService.selectByOrderId(orderid);
             return AjaxResult.success("success",list);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
 
-    @RequestMapping("/selectOne")
+    @RequestMapping("/detail/selectOne")
     public AjaxResult selectDetailOne(Integer orderid){
         try {
             List<OrderDetail> list=orderDetailService.selectByOrderId(orderid);
@@ -88,7 +89,7 @@ public class OrderController {
         }
     }
 
-    @RequestMapping("/buyone")
+    @RequestMapping("/buyOne")
     public AjaxResult buyOne(@RequestParam("openId")String openid,
                              @RequestParam("isbn")String isbn,
                              @RequestParam("num")Integer num){
