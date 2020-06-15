@@ -14,4 +14,5 @@ public interface OrderDao {
     void updateStatus(Integer orderid);
     void addOrder(Order order);
     Order selectByOpenIdAndTime(@Param("openid")String openid,@Param("time")String time);
+    void getCargo(Integer orderid);
 }

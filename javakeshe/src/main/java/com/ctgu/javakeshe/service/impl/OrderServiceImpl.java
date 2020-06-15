@@ -34,4 +34,9 @@ public class OrderServiceImpl implements OrderService {
     public Order selectByOpenIdAndTime(String openid, String time){
         return orderDao.selectByOpenIdAndTime(openid,time);
     }
+
+    @Override
+    public void getCargo(Integer orderid){
+        orderDao.getCargo(orderid);
+    }
 }

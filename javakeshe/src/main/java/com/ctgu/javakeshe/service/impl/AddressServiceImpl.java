@@ -22,4 +22,9 @@ public class AddressServiceImpl implements AddressService {
     public void insertAddress(Address adress){
         addressDao.insertAddress(adress);
     }
+
+    @Override
+    public void deleteById(Integer id){
+        addressDao.deleteById(id);
+    }
 }

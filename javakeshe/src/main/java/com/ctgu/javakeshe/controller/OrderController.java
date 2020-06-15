@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @CrossOrigin
-@RequestMapping("qmx")
+@RequestMapping("qmx/order")
 @RestController
 public class OrderController {
     @Resource
@@ -48,7 +48,17 @@ public class OrderController {
         }
     }
 
-    @RequestMapping("/order/selectAll")
+    @RequestMapping("/getCargo")
+    public AjaxResult getCargo(Integer orderid){
+        try {
+            orderService.getCargo(orderid);
+            return AjaxResult.success();
+        }catch (Exception e){
+            return AjaxResult.fail();
+        }
+    }
+
+    @RequestMapping("/selectAll")
     public AjaxResult selectAll(String openid){
         try {
             List<Order> list=orderService.selectByOpenId(openid);
@@ -58,7 +68,7 @@ public class OrderController {
         }
     }
 
-    @RequestMapping("/order/selectOne")
+    @RequestMapping("/selectOne")
     public AjaxResult selectOne(Integer orderid ){
         try {
             List<Order> list=orderService.selectByOrderId(orderid);
@@ -68,7 +78,7 @@ public class OrderController {
         }
     }
 
-    @RequestMapping("/detail/selectOne")
+    @RequestMapping("/selectOne")
     public AjaxResult selectDetailOne(Integer orderid){
         try {
             List<OrderDetail> list=orderDetailService.selectByOrderId(orderid);
@@ -78,7 +88,7 @@ public class OrderController {
         }
     }
 
-    @RequestMapping("order/buyone")
+    @RequestMapping("/buyone")
     public AjaxResult buyOne(@RequestParam("openId")String openid,
                              @RequestParam("isbn")String isbn,
                              @RequestParam("num")Integer num){
@@ -88,7 +98,7 @@ public class OrderController {
             money=book.getBookNewPrice()*num;
             List<Address> list=adressService.selectByOpenId(openid);
             String time= TimeGet.timeget();
-            orderService.addOrder(new Order(openid,0, money, time,list.indexOf(0)));
+            orderService.addOrder(new Order(openid,0, money, time,list.get(0).getId()));
             Order order=orderService.selectByOpenIdAndTime(openid,time);
             OrderDetail orderDetail=new OrderDetail();
             orderDetailService.addDetail(new OrderDetail(isbn, openid, order.getOrderid(),  num));

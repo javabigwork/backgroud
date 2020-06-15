@@ -28,7 +28,7 @@ select * from shopping_car where open_id=#{openid};
   <insert id="addSPC" parameterType="com.ctgu.javakeshe.entity.ShoppingCar">
     insert into shopping_car values(#{isbn},#{count},#{openid});
   </insert>
-    <select id="selectById" resultMap="com.ctgu.javakeshe.entity.ShoppingCar" parameterType="Integer">
+    <select id="selectById" resultType="com.ctgu.javakeshe.entity.ShoppingCar" parameterType="Integer">
         select * from shopping_car where id=#{id};
     </select>
 </mapper>

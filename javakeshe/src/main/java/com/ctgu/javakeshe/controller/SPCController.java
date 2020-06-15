@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @CrossOrigin
-@RequestMapping("SPC")
+@RequestMapping("qmx/SPC")
 @RestController
 public class SPCController {
     @Resource
@@ -105,14 +105,18 @@ public class SPCController {
                 list3.add(spc);
             }
             List<Address> add=addressService.selectByOpenId(openid);
-            orderService.addOrder(new Order(openid,0, total, time, list3.indexOf(0)));
+            Address ad= add.get(0);
+            orderService.addOrder(new Order(openid,0, total, time, ad.getId()));
             Order order=orderService.selectByOpenIdAndTime(openid,time);
             for(ShoppingCar s:list3){
                 orderDetailService.addDetail(new OrderDetail(s.getIsbn(),
                         openid, order.getOrderid(), s.getCount()));
                 spcService.deleteOne(s.getId());
             }
-            return AjaxResult.success();
+            for(Integer i:buy){
+                spcService.deleteOne(i);
+            }
+            return AjaxResult.success("success",add.get(0));
         }catch (Exception e){
             return AjaxResult.fail();
         }

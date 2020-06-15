@@ -18,6 +18,8 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     @Resource
     private OrderDetailDao orderDetaiolDao;
 
+
+
     @Override
     public List<OrderDetail> selectByOpenId(String openid){
         return orderDetaiolDao.selectByOpenId(openid);

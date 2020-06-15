@@ -10,4 +10,5 @@ public interface OrderService {
     void updateStatus(Integer orderid);
     void addOrder(Order order);
     Order selectByOpenIdAndTime(String openid,String time);
+    void getCargo(Integer orderid);
 }

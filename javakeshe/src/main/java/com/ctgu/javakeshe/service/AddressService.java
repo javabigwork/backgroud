@@ -7,5 +7,5 @@ import java.util.List;
 public interface AddressService {
     List<Address> selectByOpenId(String openid);
     void insertAddress(Address adress);
-
+    void deleteById(Integer id);
 }

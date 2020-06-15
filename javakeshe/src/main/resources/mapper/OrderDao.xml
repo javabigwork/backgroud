@@ -18,6 +18,9 @@
 <update id="updateStatus" parameterType="Integer">
     update order set order_status=1 where order_id=#{orderid};
 </update>
+  <update id="getCargo" parameterType="Integer">
+      update or set order_status=2 where order_id=#{orderid};
+  </update>
  <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
      insert order values(#{openid},#{status},#{price},#{time},#{addid});
  </insert>

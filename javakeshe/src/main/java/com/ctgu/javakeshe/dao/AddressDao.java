@@ -9,4 +9,5 @@ import java.util.List;
 public interface AddressDao {
     List<Address> selectByOpenId(String openid);
     void insertAddress(Address adress);
+    void deleteById(Integer id);
 }
