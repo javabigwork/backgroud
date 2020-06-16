@@ -22,7 +22,8 @@
       update `order` set order_status=2 where order_id=#{orderid};
   </update>
  <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
-     insert `order` values(#{openid},#{status},#{price},#{time},#{addid});
+     insert `order`(`open_id`,`order_status`,`order_price`,`order_date`,`add_id`)`
+     values(#{openid},#{status},#{price},#{time},#{addid});
  </insert>
     <select id="selectByOpenIdAndTime">
         select * from `order` where open_id=#{openid},order_date=#{time}

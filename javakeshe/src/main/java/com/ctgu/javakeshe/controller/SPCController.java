@@ -82,7 +82,7 @@ public class SPCController {
     }
 
     @RequestMapping("/selectAll")
-    public AjaxResult selectAll(@RequestParam("openid")String openid){
+    public AjaxResult selectAll(@RequestParam("openId")String openid){
         try{
             List list=spcService.selectAll(openid);
             return AjaxResult.success("查找成功",list);
