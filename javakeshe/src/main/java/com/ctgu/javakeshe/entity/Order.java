@@ -8,6 +8,7 @@ public class Order {
     private Double price;
     private String date;
     private Integer addid;
+    private String transportDay;
 
     @Override
     public String toString() {
@@ -17,7 +18,8 @@ public class Order {
                 ", status=" + status +
                 ", price=" + price +
                 ", date='" + date + '\'' +
-                ", addid=" + addid +
+                ", addid=" + addid +'\''+
+                ",transportDay="+transportDay+
                 '}';
     }
 
@@ -69,6 +71,10 @@ public class Order {
         return addid;
     }
 
+    public String getTransportDay(){return transportDay;}
+
+    public void setTransportDay(String transportDay){this.transportDay=transportDay;}
+
     public Order(Integer orderid, String openid, Integer status, Double price, String date, Integer addid) {
         this.orderid = orderid;
         this.openid = openid;
@@ -84,4 +90,5 @@ public class Order {
         this.date = date;
         this.addid = addid;
     }
+    public Order(){}
 }

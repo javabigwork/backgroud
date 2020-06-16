@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 public interface AddressDao {
     List<Address> selectByOpenId(String openid);
-    void insertAddress(Address adress);
+    void insertAddress(Address address);
     void deleteById(Integer id);
 }

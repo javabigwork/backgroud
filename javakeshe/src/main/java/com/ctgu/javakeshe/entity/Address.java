@@ -24,7 +24,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Adress{" +
+        return "Address{" +
                 "id=" + id +
                 ", consignee='" + consignee + '\'' +
                 ", province='" + province + '\'' +

@@ -1,6 +1,7 @@
 package com.ctgu.javakeshe.service;
 
 import com.ctgu.javakeshe.entity.Order;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ public interface OrderService {
     Order selectByOpenIdAndTime(String openid,String time);
     void getCargo(Integer orderid);
     List<Order> selectAll();
+    void setTransportDay(String transportDay,Integer id);
 }

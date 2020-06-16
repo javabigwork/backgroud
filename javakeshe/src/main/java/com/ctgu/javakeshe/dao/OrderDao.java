@@ -16,4 +16,5 @@ public interface OrderDao {
     Order selectByOpenIdAndTime(@Param("openid")String openid,@Param("time")String time);
     void getCargo(Integer orderid);
     List<Order> selectAll();
+    void setTransportDay(@Param("transportDay") String transportDay,@Param("id")Integer id);
 }

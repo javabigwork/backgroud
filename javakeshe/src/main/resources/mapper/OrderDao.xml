@@ -7,6 +7,7 @@
             <result property="status" column="order_status"/>
             <result property="price" column="order_price"/>
             <result property="date" column="order_date"/>
+        <result property="transportDay" column="transportDay"/>
         <result property="addid" column="add_id"/>
     </resultMap>
 <select id="selectByOpenId" resultMap="OrderResultMap" parameterType="String">
@@ -31,4 +32,7 @@
     <select id="selectAll" resultMap="OrderResultMap">
         select * from `order`;
     </select>
+    <update id="setTransportDay">
+        update `order` set transportDay=#{transportDay} where order_id=#{id};
+    </update>
 </mapper>
