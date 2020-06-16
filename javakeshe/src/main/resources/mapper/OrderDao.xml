@@ -7,6 +7,7 @@
             <result property="status" column="order_status"/>
             <result property="price" column="order_price"/>
             <result property="date" column="order_date"/>
+        <result property="transportDay" column="transportDay"/>
         <result property="addid" column="add_id"/>
     </resultMap>
 <select id="selectByOpenId" resultMap="OrderResultMap" parameterType="String">
@@ -22,7 +23,8 @@
       update `order` set order_status=2 where order_id=#{orderid};
   </update>
  <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
-     insert `order` values(#{openid},#{status},#{price},#{time},#{addid});
+     insert `order`(`open_id`,`order_status`,`order_price`,`order_date`,`add_id`)`
+     values(#{openid},#{status},#{price},#{time},#{addid});
  </insert>
     <select id="selectByOpenIdAndTime">
         select * from `order` where open_id=#{openid},order_date=#{time}
@@ -30,4 +32,7 @@
     <select id="selectAll" resultMap="OrderResultMap">
         select * from `order`;
     </select>
+    <update id="setTransportDay">
+        update `order` set transportDay=#{transportDay} where order_id=#{id};
+    </update>
 </mapper>

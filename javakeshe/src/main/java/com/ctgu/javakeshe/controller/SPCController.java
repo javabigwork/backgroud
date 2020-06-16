@@ -8,10 +8,7 @@ import com.ctgu.javakeshe.entity.ShoppingCar;
 import com.ctgu.javakeshe.filter.AjaxResult;
 import com.ctgu.javakeshe.service.*;
 import com.ctgu.javakeshe.util.TimeGet;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -52,7 +49,7 @@ public class SPCController {
     }
 
     @RequestMapping("/addCount")
-    public AjaxResult AddCount(@RequestParam("id")Integer id){
+    public AjaxResult AddCount(Integer id){
         try {
             spcService.addCount(id);
             return AjaxResult.success();
@@ -62,7 +59,7 @@ public class SPCController {
     }
 
     @RequestMapping("/minusCount")
-    public AjaxResult MinusCount(@RequestParam("id")Integer id){
+    public AjaxResult MinusCount(Integer id){
         try{
             spcService.minusCount(id);
             return AjaxResult.success();
@@ -72,7 +69,7 @@ public class SPCController {
     }
 
     @RequestMapping("/add")
-    public AjaxResult Add(@RequestParam("SPC")ShoppingCar SPC){
+    public AjaxResult Add(@RequestBody ShoppingCar SPC){
         try{
             spcService.addSPC(SPC);
             return AjaxResult.success();
@@ -82,7 +79,7 @@ public class SPCController {
     }
 
     @RequestMapping("/selectAll")
-    public AjaxResult selectAll(@RequestParam("openid")String openid){
+    public AjaxResult selectAll(String openid){
         try{
             List list=spcService.selectAll(openid);
             return AjaxResult.success("查找成功",list);
@@ -93,7 +90,7 @@ public class SPCController {
 
     @RequestMapping("/buy")
     public AjaxResult buyBooks(@RequestParam("openId")String openid,
-                               @RequestParam("buylist")List<Integer> buy){
+                               @RequestBody @RequestParam("buylist")List<Integer> buy){
        String time= TimeGet.timeget();
         try {
             Double total=0.0;

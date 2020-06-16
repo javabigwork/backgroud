@@ -26,7 +26,7 @@ select * from shopping_car where open_id=#{openid};
      update shopping_car set count=count-1 where id=#{id};
  </update>
   <insert id="addSPC" parameterType="com.ctgu.javakeshe.entity.ShoppingCar">
-    insert into shopping_car values(#{isbn},#{count},#{openid});
+    insert into `shopping_car`(`isbn`,`count`,`open_id`) values(#{isbn},#{count},#{openid});
   </insert>
     <select id="selectById" resultType="com.ctgu.javakeshe.entity.ShoppingCar" parameterType="Integer">
         select * from shopping_car where id=#{id};

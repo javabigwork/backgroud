@@ -44,4 +44,9 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> selectAll(){
         return orderDao.selectAll();
     }
+
+    @Override
+    public void setTransportDay(String transportDay,Integer id){
+        orderDao.setTransportDay(transportDay,id);
+    }
 }

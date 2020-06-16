@@ -29,7 +29,7 @@ public class OrderController {
     @Resource
     private OrderDetailService orderDetailService;
     @RequestMapping("/addOrder")
-    public AjaxResult addOrder(@RequestParam("order")Order order){
+    public AjaxResult addOrder(@RequestBody Order order){
         try {
             orderService.addOrder(order);
             return AjaxResult.success();
@@ -51,7 +51,9 @@ public class OrderController {
     @RequestMapping("/getCargo")
     public AjaxResult getCargo(Integer orderid){
         try {
+            String time=TimeGet.timeget();
             orderService.getCargo(orderid);
+            orderService.setTransportDay(time,orderid);
             return AjaxResult.success();
         }catch (Exception e){
             return AjaxResult.fail();
@@ -106,6 +108,17 @@ public class OrderController {
             return AjaxResult.success("success",list.get(0));
         }catch (Exception e){
          return AjaxResult.fail();
+        }
+    }
+
+    @RequestMapping("/select")
+    public AjaxResult select(){
+        try{
+            List<Order> list=orderService.selectAll();
+            return AjaxResult.success("success",list);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return AjaxResult.fail();
         }
     }
 }

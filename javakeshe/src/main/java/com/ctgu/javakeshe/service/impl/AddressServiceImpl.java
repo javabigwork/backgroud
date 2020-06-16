@@ -19,8 +19,9 @@ public class AddressServiceImpl implements AddressService {
         return addressDao.selectByOpenId(openid);
     }
     @Override
-    public void insertAddress(Address adress){
-        addressDao.insertAddress(adress);
+    public void insertAddress(Address address){
+        System.out.println(address);
+        addressDao.insertAddress(address);
     }
 
     @Override
