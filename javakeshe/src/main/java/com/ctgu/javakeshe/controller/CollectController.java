@@ -16,7 +16,7 @@ import java.util.List;
  * @date 2020/6/14 21:55
  */
 @CrossOrigin
-@RequestMapping("qmx")
+@RequestMapping("qmx/collect")
 @RestController
 public class CollectController {
     @Resource
@@ -24,6 +24,7 @@ public class CollectController {
 
     @RequestMapping("/selectAll")
     public AjaxResult selectAll(@RequestParam("open_id")String open_id){
+        System.out.println("good");
         List<Collect> collectList=new ArrayList<>();
         collectList=collectService.selectAllByOpen_id(open_id);
         return  AjaxResult.success("成功",collectList);
