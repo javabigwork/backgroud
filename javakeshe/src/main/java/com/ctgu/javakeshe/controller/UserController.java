@@ -68,10 +68,16 @@ public class UserController {
         }else {
             userService.saveUser(user);
         }
-        System.out.println(map);
-        System.out.println(AjaxResult.success("成功",map));
         return AjaxResult.success("成功",map);
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public AjaxResult update(@RequestParam("openId") String openId, @RequestParam("avatarUrl") String avatarUrl, @RequestParam("nikeName") String nikeName){
+        User user = userService.findById(openId);
+        user.setNickName(nikeName);
+        user.setAvatarUrl(avatarUrl);
+        userService.saveUser(user);
+        return AjaxResult.success("成功","success");
+    }
 
 }

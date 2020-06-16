@@ -6,6 +6,8 @@ public class User {
     private String openId;
     private String nickName;
     private Date lastLoginTime;
+    private String avatarUrl;
+
 
     public String getOpenId() {
         return openId;
@@ -31,12 +33,21 @@ public class User {
         this.lastLoginTime = lastLoginTime;
     }
 
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "openId='" + openId + '\'' +
                 ", nickName='" + nickName + '\'' +
                 ", lastLoginTime=" + lastLoginTime +
+                ", avatarUrl='" + avatarUrl + '\'' +
                 '}';
     }
 }
