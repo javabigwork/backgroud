@@ -24,15 +24,17 @@ public class CommentController {
     @Resource
     private CommentService commentService;
 
-    @RequestMapping("/selectAll")
-    public AjaxResult selectAll(){
+    @GetMapping("/selectAll")
+    public AjaxResult selectAll(@RequestParam("isbn") String isbn){
         List<CommentDTO> commentList = new ArrayList<>();
-        commentList = commentService.findCommentAndUser();
+        commentList = commentService.findCommentAndUserByIsbn(isbn);
+        System.out.println(commentList);
         return AjaxResult.success("成功",commentList);
     }
 
     @PostMapping("/addComment")
-    public AjaxResult addBook(Comment comment){
+    public AjaxResult addBook(@RequestBody Comment comment){
+        System.out.println(comment);
         commentService.addComment(comment);
         return AjaxResult.success("成功","success");
     }
