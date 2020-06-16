@@ -17,8 +17,10 @@ public class AddressController {
     private AddressService addressService;
     @RequestMapping("/add")
     public AjaxResult add(@RequestBody Address add){
+        if(add.getOpenid()==null){
+            return AjaxResult.fail("openId为空");
+        }
         try{
-            System.out.println(add);
             addressService.insertAddress(add);
             return AjaxResult.success();
         }catch (Exception e){
@@ -33,16 +35,17 @@ public class AddressController {
             addressService.deleteById(id);
             return AjaxResult.success();
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
     @RequestMapping("/allAddress")
-    public AjaxResult selectAll(String id){
+    public AjaxResult selectAll(String openId){
         try{
-            System.out.println(id);
-            List<Address> list= addressService.selectByOpenId(id);
+            List<Address> list= addressService.selectByOpenId(openId);
             return AjaxResult.success("success",list);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
