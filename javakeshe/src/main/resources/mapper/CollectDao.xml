@@ -4,16 +4,16 @@
 
     <resultMap id="collectResultMap" type="com.ctgu.javakeshe.entity.Collect" >
         <id property="id" column="id"/>
-        <result property="open_id" column="open_id"/>
+        <result property="openId" column="open_id"/>
         <result property="isbn" column="isbn"/>
     </resultMap>
 
  <select id="selectAllByOpen_id"  resultMap="collectResultMap" parameterType="String">
-        select * from collect where open_id=#{open_id};
+        select * from collect where open_id=#{openId};
 </select>
 
 <insert id="addCollect" parameterType="Map">
-    insert into collect(open_id,isbn) values (#{open_id},#{isbn});
+    insert into collect(open_id,isbn) values (#{openId},#{isbn});
 </insert>
 
 <delete id="deleteCollect" parameterType="int">

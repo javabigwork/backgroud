@@ -21,14 +21,14 @@ public class CollectServiceImpl implements CollectService {
     @Resource
     private CollectDao collectDao;
     @Override
-    public List<Collect> selectAllByOpen_id(String open_id) {
-        return collectDao.selectAllByOpen_id(open_id);
+    public List<Collect> selectAllByOpen_id(String openId) {
+        return collectDao.selectAllByOpen_id(openId);
     }
 
     @Override
-    public Collect addCollect(String open_id, String isbn) {
+    public Collect addCollect(String openId, String isbn) {
         Map<String,String> collectMap=new HashMap<>();
-        collectMap.put("open_id",open_id);
+        collectMap.put("openId",openId);
         collectMap.put("isbn",isbn);
         return collectDao.addCollect(collectMap);
     }

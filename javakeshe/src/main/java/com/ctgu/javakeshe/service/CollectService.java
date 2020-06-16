@@ -11,9 +11,9 @@ import java.util.List;
  */
 public interface CollectService {
     //返回该用户收藏的所有书籍
-    List<Collect> selectAllByOpen_id(String open_id);
+    List<Collect> selectAllByOpen_id(String openId);
     //用户收藏该书籍
-    Collect addCollect(String open_id,String isbn);
+    Collect addCollect(String openId,String isbn);
     //删除该用户收藏的改书籍
     void deleteCollect(int id);
 }

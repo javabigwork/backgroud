@@ -7,15 +7,15 @@ package com.ctgu.javakeshe.entity;
  */
 public class Collect {
     private int id;
-    private String open_id;
+    private String openId;
     private String isbn;
 
     public Collect() {
     }
 
-    public Collect(int id, String open_id, String isbn) {
+    public Collect(int id, String openId, String isbn) {
         this.id = id;
-        this.open_id = open_id;
+        this.openId = openId;
         this.isbn = isbn;
     }
 
@@ -27,12 +27,12 @@ public class Collect {
         this.id = id;
     }
 
-    public String getOpen_id() {
-        return open_id;
+    public String getOpenId() {
+        return openId;
     }
 
-    public void setOpen_id(String open_id) {
-        this.open_id = open_id;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
     public String getIsbn() {
@@ -47,7 +47,7 @@ public class Collect {
     public String toString() {
         return "Collect{" +
                 "id=" + id +
-                ", open_id=" + open_id +
+                ", openId=" + openId +
                 ", isbn='" + isbn + '\'' +
                 '}';
     }

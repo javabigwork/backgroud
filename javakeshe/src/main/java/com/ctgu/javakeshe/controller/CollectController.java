@@ -24,9 +24,7 @@ public class CollectController {
 
     @RequestMapping("/selectAll")
     public AjaxResult selectAll(@RequestParam("open_id")String open_id){
-        System.out.println("good");
-        List<Collect> collectList=new ArrayList<>();
-        collectList=collectService.selectAllByOpen_id(open_id);
+        List<Collect> collectList=collectService.selectAllByOpen_id(open_id);
         return  AjaxResult.success("成功",collectList);
     }
 
@@ -38,7 +36,7 @@ public class CollectController {
 
     @PostMapping("/addCollect")
     public  AjaxResult addCollection(Collect collect){
-        collectService.addCollect(collect.getOpen_id(),collect.getIsbn());
+        collectService.addCollect(collect.getOpenId(),collect.getIsbn());
         return AjaxResult.success("成功","success");
     }
 }

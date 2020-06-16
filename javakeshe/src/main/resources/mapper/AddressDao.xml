@@ -14,7 +14,7 @@
     <select id="selectByOpenId" resultMap="AddressResultMap" parameterType="String">
         select * from address where open_id=#{openid};
     </select>
-    <insert id="insertAdress" parameterType="com.ctgu.javakeshe.entity.Address">
+    <insert id="insertAddress" parameterType="com.ctgu.javakeshe.entity.Address">
         insert address values(#{consignee},#{province},#{city},#{country},#{detail},#{openid},#{phone});
     </insert>
 <delete id="deleteById" parameterType="Integer">
