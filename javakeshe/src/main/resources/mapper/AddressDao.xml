@@ -15,12 +15,8 @@
         select * from address where open_id=#{openid};
     </select>
     <insert id="insertAddress" parameterType="com.ctgu.javakeshe.entity.Address">
-<<<<<<< HEAD
-        insert address values(#{consignee},#{province},#{city},#{country},#{detail},#{openid},#{phone});
-=======
         insert `address`(`consignee`,`mobile`,`provinceName`,`cityName`,`countyName`,`detail_address`,`open_id`)
         values(#{consignee},#{phone},#{province},#{city},#{country},#{detail},#{openid});
->>>>>>> 5c890893a7d06b98fffe68f17ca862d5fdd2ccea
     </insert>
 <delete id="deleteById" parameterType="Integer">
     delete from address where id=#{id};
