@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.35">
+    <CLASSES>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.35/tomcat-embed-websocket-9.0.35.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.35/tomcat-embed-websocket-9.0.35-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.35/tomcat-embed-websocket-9.0.35-sources.jar!/" />
+=======
+=======
+>>>>>>> zy
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.35/tomcat-embed-websocket-9.0.35.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.35/tomcat-embed-websocket-9.0.35-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.35/tomcat-embed-websocket-9.0.35-sources.jar!/" />
+<<<<<<< HEAD
+>>>>>>> wtc
+=======
+>>>>>>> zy
+    </SOURCES>
+  </library>
+</component>

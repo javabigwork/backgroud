@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="Maven: org.yaml:snakeyaml:1.26">
+    <CLASSES>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/yaml/snakeyaml/1.26/snakeyaml-1.26.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/yaml/snakeyaml/1.26/snakeyaml-1.26-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/yaml/snakeyaml/1.26/snakeyaml-1.26-sources.jar!/" />
+=======
+=======
+>>>>>>> zy
+      <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.26/snakeyaml-1.26.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.26/snakeyaml-1.26-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.26/snakeyaml-1.26-sources.jar!/" />
+<<<<<<< HEAD
+>>>>>>> wtc
+=======
+>>>>>>> zy
+    </SOURCES>
+  </library>
+</component>

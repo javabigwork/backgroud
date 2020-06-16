@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.11.0">
+    <CLASSES>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.0/jackson-module-parameter-names-2.11.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.0/jackson-module-parameter-names-2.11.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.0/jackson-module-parameter-names-2.11.0-sources.jar!/" />
+=======
+=======
+>>>>>>> zy
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.0/jackson-module-parameter-names-2.11.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.0/jackson-module-parameter-names-2.11.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-parameter-names/2.11.0/jackson-module-parameter-names-2.11.0-sources.jar!/" />
+<<<<<<< HEAD
+>>>>>>> wtc
+=======
+>>>>>>> zy
+    </SOURCES>
+  </library>
+</component>

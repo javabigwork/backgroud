@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="Maven: joda-time:joda-time:2.9.9">
+    <CLASSES>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/joda-time/joda-time/2.9.9/joda-time-2.9.9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/joda-time/joda-time/2.9.9/joda-time-2.9.9-sources.jar!/" />
+=======
+=======
+>>>>>>> zy
+      <root url="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.9.9/joda-time-2.9.9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.9.9/joda-time-2.9.9-sources.jar!/" />
+<<<<<<< HEAD
+>>>>>>> wtc
+=======
+>>>>>>> zy
+    </SOURCES>
+  </library>
+</component>

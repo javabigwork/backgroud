@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="Maven: org.bouncycastle:bcprov-jdk15on:1.64">
+    <CLASSES>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/bouncycastle/bcprov-jdk15on/1.64/bcprov-jdk15on-1.64.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/bouncycastle/bcprov-jdk15on/1.64/bcprov-jdk15on-1.64-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/bouncycastle/bcprov-jdk15on/1.64/bcprov-jdk15on-1.64-sources.jar!/" />
+=======
+=======
+>>>>>>> zy
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk15on/1.64/bcprov-jdk15on-1.64.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk15on/1.64/bcprov-jdk15on-1.64-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk15on/1.64/bcprov-jdk15on-1.64-sources.jar!/" />
+<<<<<<< HEAD
+>>>>>>> wtc
+=======
+>>>>>>> zy
+    </SOURCES>
+  </library>
+</component>
