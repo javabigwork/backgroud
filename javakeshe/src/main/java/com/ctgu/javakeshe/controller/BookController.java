@@ -25,18 +25,14 @@ public class BookController {
         return AjaxResult.success("成功",bookList);
     }
 
-    @GetMapping("/selectOneBook")
-    public AjaxResult selectOneBook(@RequestParam("isbn") String isbn){
+    @RequestMapping("/selectOneBook")
+    public AjaxResult selectOneBook(@RequestParam(value = "isbn") String isbn){
+        System.out.println(isbn);
         Book book = new Book();
         book = bookService.selectOneBook(isbn);
         return AjaxResult.success("成功",book);
     }
 
-    /**
-     * 待测试 功能
-     * @param book
-     * @return
-     */
     @RequestMapping("/updateBook")
     public AjaxResult updateBook(Book book){
         bookService.updateBook(book);
