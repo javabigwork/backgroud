@@ -35,7 +35,8 @@
         	user
         SET
         	nick_name = #{nickName},
-        	last_Login_time = #{lastLoginTime}
+        	last_Login_time = #{lastLoginTime},
+        	avatar_url = #{avatarUrl}
         WHERE
         	open_id = #{openId}
     </update>

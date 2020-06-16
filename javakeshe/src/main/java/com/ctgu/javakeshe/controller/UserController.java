@@ -72,9 +72,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public AjaxResult update(@RequestParam("openId") String openId, @RequestParam("avatarUrl") String avatarUrl, @RequestParam("nikeName") String nikeName){
+    public AjaxResult update(@RequestParam("openId") String openId,
+                             @RequestParam("avatarUrl") String avatarUrl,
+                             @RequestParam("nickName") String nickName){
+
         User user = userService.findById(openId);
-        user.setNickName(nikeName);
+        user.setNickName(nickName);
         user.setAvatarUrl(avatarUrl);
         userService.saveUser(user);
         return AjaxResult.success("成功","success");
