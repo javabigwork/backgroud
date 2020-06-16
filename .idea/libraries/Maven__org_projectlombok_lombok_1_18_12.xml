@@ -2,6 +2,7 @@
   <library name="Maven: org.projectlombok:lombok:1.18.12">
     <CLASSES>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/projectlombok/lombok/1.18.12/lombok-1.18.12.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -10,6 +11,8 @@
     <SOURCES>
       <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/org/projectlombok/lombok/1.18.12/lombok-1.18.12-sources.jar!/" />
 =======
+=======
+>>>>>>> zy
       <root url="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.12/lombok-1.18.12.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -17,7 +20,10 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.12/lombok-1.18.12-sources.jar!/" />
+<<<<<<< HEAD
 >>>>>>> wtc
+=======
+>>>>>>> zy
     </SOURCES>
   </library>
 </component>

@@ -2,6 +2,7 @@
   <library name="Maven: net.sf.ezmorph:ezmorph:1.0.6">
     <CLASSES>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -10,6 +11,8 @@
     <SOURCES>
       <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6-sources.jar!/" />
 =======
+=======
+>>>>>>> zy
       <root url="jar://$MAVEN_REPOSITORY$/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -17,7 +20,10 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6-sources.jar!/" />
+<<<<<<< HEAD
 >>>>>>> wtc
+=======
+>>>>>>> zy
     </SOURCES>
   </library>
 </component>

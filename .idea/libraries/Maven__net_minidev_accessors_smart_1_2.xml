@@ -2,6 +2,7 @@
   <library name="Maven: net.minidev:accessors-smart:1.2">
     <CLASSES>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -10,6 +11,8 @@
     <SOURCES>
       <root url="jar://D:/apache-maven-3.6.1-bin/apache-maven-3.6.1/maven-repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2-sources.jar!/" />
 =======
+=======
+>>>>>>> zy
       <root url="jar://$MAVEN_REPOSITORY$/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -17,7 +20,10 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/net/minidev/accessors-smart/1.2/accessors-smart-1.2-sources.jar!/" />
+<<<<<<< HEAD
 >>>>>>> wtc
+=======
+>>>>>>> zy
     </SOURCES>
   </library>
 </component>
