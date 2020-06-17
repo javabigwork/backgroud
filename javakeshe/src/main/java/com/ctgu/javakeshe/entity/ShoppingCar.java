@@ -20,7 +20,7 @@ public class ShoppingCar {
     private Integer id;
     private String isbn;
     private Integer count;
-    private Integer openid;
+    private String openid;
     private Double price;
 
     public ShoppingCar(){}
@@ -48,7 +48,7 @@ public class ShoppingCar {
         this.count = count;
     }
 
-    public void setOpenid(Integer openid) {
+    public void setOpenid(String openid) {
         this.openid = openid;
     }
 
@@ -68,7 +68,7 @@ public class ShoppingCar {
         return count;
     }
 
-    public Integer getOpenid() {
+    public String getOpenid() {
         return openid;
     }
 
@@ -76,7 +76,7 @@ public class ShoppingCar {
         return price;
     }
 
-    public ShoppingCar(Integer id, String isbn, Integer count, Integer openid, Double price) {
+    public ShoppingCar(Integer id, String isbn, Integer count, String openid, Double price) {
         this.id = id;
         this.isbn = isbn;
         this.count = count;
