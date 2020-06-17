@@ -18,7 +18,7 @@
         insert `address`(`consignee`,`mobile`,`provinceName`,`cityName`,`countyName`,`detail_address`,`open_id`)
         values(#{consignee},#{phone},#{province},#{city},#{country},#{detail},#{openid});
     </insert>
-<delete id="deleteById" parameterType="Integer">
+    <delete id="deleteById" parameterType="Integer">
     delete from address where id=#{id};
 </delete>
 </mapper>
