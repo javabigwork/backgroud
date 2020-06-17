@@ -22,18 +22,42 @@ public class ShoppingCar {
     private Integer count;
     private String openid;
     private Double price;
+    private String bookName;
+    private String bookTitle;
+    private String bookImgPath;
+    private Integer isSelect;
 
-    public ShoppingCar(){}
 
-    @Override
-    public String toString() {
-        return "ShoppingCar{" +
-                "id=" + id +
-                ", isbn='" + isbn + '\'' +
-                ", count=" + count +
-                ", openid=" + openid +
-                ", price=" + price +
-                '}';
+    public Integer getSelect() {
+        return isSelect;
+    }
+
+    public void setSelect(Integer select) {
+        isSelect = select;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public String getBookImgPath() {
+        return bookImgPath;
+    }
+
+    public void setBookImgPath(String bookImgPath) {
+        this.bookImgPath = bookImgPath;
     }
 
     public void setId(Integer id) {
@@ -76,11 +100,37 @@ public class ShoppingCar {
         return price;
     }
 
+<<<<<<< HEAD
     public ShoppingCar(Integer id, String isbn, Integer count, String openid, Double price) {
+=======
+    public ShoppingCar(Integer id, String isbn, Integer count, String openid, Double price, String bookName, String bookTitle, String bookImgPath, Integer isSelect) {
+>>>>>>> lc
         this.id = id;
         this.isbn = isbn;
         this.count = count;
         this.openid = openid;
         this.price = price;
+        this.bookName = bookName;
+        this.bookTitle = bookTitle;
+        this.bookImgPath = bookImgPath;
+        this.isSelect = isSelect;
+    }
+
+    public ShoppingCar() {
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingCar{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", count=" + count +
+                ", openid='" + openid + '\'' +
+                ", price=" + price +
+                ", bookName='" + bookName + '\'' +
+                ", bookTitle='" + bookTitle + '\'' +
+                ", bookImgPath='" + bookImgPath + '\'' +
+                ", isSelect=" + isSelect +
+                '}';
     }
 }

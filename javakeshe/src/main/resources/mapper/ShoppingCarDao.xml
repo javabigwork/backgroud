@@ -31,4 +31,19 @@ select * from shopping_car where open_id=#{openid};
     <select id="selectById" resultType="com.ctgu.javakeshe.entity.ShoppingCar" parameterType="Integer">
         select * from shopping_car where id=#{id};
     </select>
+    <select id="selectShoppingCar" resultType="com.ctgu.javakeshe.entity.ShoppingCar" parameterType="java.lang.String">
+        select b.book_name as bookName,
+        b.book_title as bookTitle,
+        sc.id as id,
+        sc.count as count,
+        sc.price as price,
+        bi.url as bookImgPath,
+        b.isbn as isbn,
+        sc.is_select as isSelect
+        from shopping_car sc inner join book b
+        on sc.isbn = b.isbn
+        inner join book_img bi
+        on sc.isbn = bi.isbn
+        where sc.open_id = #{openId} and bi.sort = 1
+    </select>
 </mapper>

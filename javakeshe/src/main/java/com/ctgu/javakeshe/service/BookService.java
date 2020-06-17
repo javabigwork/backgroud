@@ -17,4 +17,6 @@ public interface BookService {
     Book addBook(Book book);
 
     void addBookImg(String isbn, String url, int sort);
+
+    List<Book> selectOneclassificationBook(Integer classificationId);
 }

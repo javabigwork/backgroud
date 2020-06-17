@@ -16,6 +16,8 @@ public class Book {
     private String bookContent;
     private Integer bookSalesVolume;
     private String bookImgPath;
+    private Classification classification;
+
     private List<BookImg> bookImgList;
 
     public List<BookImg> getBookImgList() {
@@ -122,6 +124,31 @@ public class Book {
         this.bookSalesVolume = bookSalesVolume;
     }
 
+    public Book(String isbn, String bookTitle, String bookName, String bookAuthor, double bookOldPrice, double bookNewPrice, double bookDiscount, Integer bookCategoryId, Integer bookStock, String bookContent, Integer bookSalesVolume, String bookImgPath, Classification classification, List<BookImg> bookImgList) {
+        this.isbn = isbn;
+        this.bookTitle = bookTitle;
+        this.bookName = bookName;
+        this.bookAuthor = bookAuthor;
+        this.bookOldPrice = bookOldPrice;
+        this.bookNewPrice = bookNewPrice;
+        this.bookDiscount = bookDiscount;
+        this.bookCategoryId = bookCategoryId;
+        this.bookStock = bookStock;
+        this.bookContent = bookContent;
+        this.bookSalesVolume = bookSalesVolume;
+        this.bookImgPath = bookImgPath;
+        this.classification = classification;
+        this.bookImgList = bookImgList;
+    }
+
+    public Classification getClassification() {
+        return classification;
+    }
+
+    public void setClassification(Classification classification) {
+        this.classification = classification;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -137,24 +164,9 @@ public class Book {
                 ", bookContent='" + bookContent + '\'' +
                 ", bookSalesVolume=" + bookSalesVolume +
                 ", bookImgPath='" + bookImgPath + '\'' +
+                ", classification=" + classification +
                 ", bookImgList=" + bookImgList +
                 '}';
-    }
-
-    public Book(String isbn, String bookTitle, String bookName, String bookAuthor, double bookOldPrice, double bookNewPrice, double bookDiscount, Integer bookCategoryId, Integer bookStock, String bookContent, Integer bookSalesVolume, String bookImgPath, List<BookImg> bookImgList) {
-        this.isbn = isbn;
-        this.bookTitle = bookTitle;
-        this.bookName = bookName;
-        this.bookAuthor = bookAuthor;
-        this.bookOldPrice = bookOldPrice;
-        this.bookNewPrice = bookNewPrice;
-        this.bookDiscount = bookDiscount;
-        this.bookCategoryId = bookCategoryId;
-        this.bookStock = bookStock;
-        this.bookContent = bookContent;
-        this.bookSalesVolume = bookSalesVolume;
-        this.bookImgPath = bookImgPath;
-        this.bookImgList = bookImgList;
     }
 
     public Book() {

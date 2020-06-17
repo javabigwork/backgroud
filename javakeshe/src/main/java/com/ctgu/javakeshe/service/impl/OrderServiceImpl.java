@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-
 public class OrderServiceImpl implements OrderService {
     @Resource
     private OrderDao orderDao;
@@ -27,8 +26,8 @@ public class OrderServiceImpl implements OrderService {
         orderDao.updateStatus(openid);
     }
     @Override
-    public void addOrder(Order order){
-        orderDao.addOrder(order);
+    public Order addOrder(Order order){
+        return orderDao.addOrder(order);
     }
 
     @Override
