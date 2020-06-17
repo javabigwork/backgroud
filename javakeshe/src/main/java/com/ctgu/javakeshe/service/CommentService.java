@@ -11,4 +11,6 @@ public interface CommentService {
     Integer addComment(Comment comment);
 
     Integer deleteComment(Integer id);
+
+    List<CommentDTO> findCommentAndUserByIsbn(String isbn);
 }

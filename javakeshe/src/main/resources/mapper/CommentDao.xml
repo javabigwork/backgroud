@@ -14,6 +14,7 @@
             <id property="openId" column="open_id"/>
             <result property="nickName" column="nick_name" />
             <result property="lastLoginTime" column="last_login_time" />
+            <result property="avatarUrl" column="avatar_url" />
         </association>
     </resultMap>
 
@@ -22,6 +23,15 @@
         *
         from comment c inner join user u
         on c.open_id = u.open_id
+    </select>
+
+    <select id="selectCommentAndUserByIsbn" resultMap="commentDTOResultMap" parameterType="java.lang.String">
+        select
+        *
+        from comment c inner join user u
+        on c.open_id = u.open_id
+        where
+        isbn = #{isbn}
     </select>
 
     <insert id="insertComment" parameterType="com.ctgu.javakeshe.entity.Comment" keyProperty="id" useGeneratedKeys="true">

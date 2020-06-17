@@ -33,4 +33,9 @@ public class CommentServiceImpl implements CommentService {
     public Integer deleteComment(Integer id) {
         return commentDao.deleteComment(id);
     }
+
+    @Override
+    public List<CommentDTO> findCommentAndUserByIsbn(String isbn) {
+        return commentDao.selectCommentAndUserByIsbn(isbn);
+    }
 }
