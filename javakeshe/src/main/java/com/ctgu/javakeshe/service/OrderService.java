@@ -14,4 +14,7 @@ public interface OrderService {
     void getCargo(Integer orderid);
     List<Order> selectAll();
     void setTransportDay(String transportDay,Integer id);
+    List<Order> selectUnPay(String openid);
+    List<Order> selectByStatus(String openid,Integer status);
+    void updateStatusAuto(Integer id);
 }

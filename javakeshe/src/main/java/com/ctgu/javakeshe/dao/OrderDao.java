@@ -17,4 +17,7 @@ public interface OrderDao {
     void getCargo(Integer orderid);
     List<Order> selectAll();
     void setTransportDay(@Param("transportDay") String transportDay,@Param("id")Integer id);
+    List<Order> selectUnPay(String openid);
+    List<Order> selectByStatus(@Param("openid")String openid,@Param("status")Integer status);
+    void updateStatusAuto(Integer id);
 }
