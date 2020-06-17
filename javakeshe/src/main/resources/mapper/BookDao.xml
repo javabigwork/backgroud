@@ -105,4 +105,24 @@
     <insert id="addBookImg" parameterType="map">
         insert into book_img(isbn,url,sort) values (#{isbn},#{url},#{sort})
     </insert>
+
+    <select id="selectOneclassificationBook" resultMap="bookResultMap">
+        select
+        b.isbn,
+        b.book_title,
+        b.book_name,
+        b.book_author,
+        b.book_old_price,
+        b.book_new_price,
+        b.book_discount,
+        b.book_category_id,
+        b.book_stock,
+        b.book_content,
+        b.book_sales_volume,
+        bi.url,
+        bi.sort
+        from book b inner join book_img bi
+        on b.isbn = bi.isbn
+        where b.book_category_id = #{classificationId}
+    </select>
 </mapper>

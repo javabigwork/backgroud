@@ -1,5 +1,6 @@
 package com.ctgu.javakeshe.controller;
 
+import com.ctgu.javakeshe.JavakesheApplication;
 import com.ctgu.javakeshe.entity.Book;
 import com.ctgu.javakeshe.filter.AjaxResult;
 import com.ctgu.javakeshe.service.BookService;
@@ -58,5 +59,11 @@ public class BookController {
             sort++;
         }
         return AjaxResult.success("成功","success");
+    }
+
+    @RequestMapping("/selectOneclassificationBook")
+    public AjaxResult selectOneclassificationBook(@RequestParam("classificationId") Integer classificationId){
+        List<Book> bookList = bookService.selectOneclassificationBook(classificationId);
+        return AjaxResult.success("成功",bookList);
     }
 }

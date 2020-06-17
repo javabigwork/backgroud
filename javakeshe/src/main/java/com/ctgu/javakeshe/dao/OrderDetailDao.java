@@ -11,4 +11,5 @@ public interface OrderDetailDao {
     List<OrderDetail> selectByOpenId(String openid);
     void addDetail(OrderDetail orderDetail);
     List<OrderDetail> selectByOrderId(Integer orderid);
+
 }

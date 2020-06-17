@@ -15,4 +15,6 @@ public interface SPCDao {
     void addSPC(ShoppingCar SPC);
     List<ShoppingCar> selectAll();
     ShoppingCar selectById(Integer id);
+
+    List<ShoppingCar> selectShoppingCar(String openId);
 }

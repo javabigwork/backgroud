@@ -51,4 +51,9 @@ public class BookServiceImpl implements BookService {
         bookImgMap.put("sort",sort);
         bookDao.addBookImg(bookImgMap);
     }
+
+    @Override
+    public List<Book> selectOneclassificationBook(Integer classificationId) {
+        return bookDao.selectOneclassificationBook(classificationId);
+    }
 }

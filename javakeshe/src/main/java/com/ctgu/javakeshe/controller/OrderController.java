@@ -1,10 +1,7 @@
 package com.ctgu.javakeshe.controller;
 
 
-import com.ctgu.javakeshe.entity.Address;
-import com.ctgu.javakeshe.entity.Book;
-import com.ctgu.javakeshe.entity.Order;
-import com.ctgu.javakeshe.entity.OrderDetail;
+import com.ctgu.javakeshe.entity.*;
 import com.ctgu.javakeshe.filter.AjaxResult;
 import com.ctgu.javakeshe.service.AddressService;
 import com.ctgu.javakeshe.service.BookService;
@@ -101,13 +98,13 @@ public class OrderController {
             money=book.getBookNewPrice()*num;
             List<Address> list=adressService.selectByOpenId(openid);
             String time= TimeGet.timeget();
-            orderService.addOrder(new Order(openid,0, money, time,list.get(0).getId()));
+            orderService.addOrder(new Order(openid,0,money,time,list.get(0).getId()));
             Order order=orderService.selectByOpenIdAndTime(openid,time);
             OrderDetail orderDetail=new OrderDetail();
             orderDetailService.addDetail(new OrderDetail(isbn, openid, order.getOrderid(),  num));
             return AjaxResult.success("success",list.get(0));
         }catch (Exception e){
-         return AjaxResult.fail();
+            return AjaxResult.fail();
         }
     }
 
@@ -121,4 +118,5 @@ public class OrderController {
             return AjaxResult.fail();
         }
     }
+
 }

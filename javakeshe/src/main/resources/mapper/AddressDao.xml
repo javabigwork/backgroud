@@ -11,7 +11,7 @@
         <result property="openid" column="open_id"/>
         <result property="phone" column="mobile"/>
     </resultMap>
-    <select id="selectByOpenId" resultMap="AddressResultMap" parameterType="String">
+    <select id="selectByOpenId" resultMap="AddressResultMap" parameterType="java.lang.String">
         select * from address where open_id=#{openid};
     </select>
     <insert id="insertAddress" parameterType="com.ctgu.javakeshe.entity.Address">
