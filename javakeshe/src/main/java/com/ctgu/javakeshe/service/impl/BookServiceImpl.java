@@ -2,6 +2,7 @@ package com.ctgu.javakeshe.service.impl;
 
 import com.ctgu.javakeshe.dao.BookDao;
 import com.ctgu.javakeshe.entity.Book;
+import com.ctgu.javakeshe.entity.DetailDTO;
 import com.ctgu.javakeshe.service.BookService;
 import org.springframework.stereotype.Service;
 
@@ -51,4 +52,13 @@ public class BookServiceImpl implements BookService {
         bookImgMap.put("sort",sort);
         bookDao.addBookImg(bookImgMap);
     }
+
+<<<<<<< HEAD
+
+=======
+    @Override
+    public List<Book> selectOneclassificationBook(Integer classificationId) {
+        return bookDao.selectOneclassificationBook(classificationId);
+    }
+>>>>>>> lc
 }

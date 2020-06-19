@@ -20,4 +20,6 @@ public interface BookDao {
     int addBook(Book book);
 
     void addBookImg(Map<String,Object> map);
+
+    List<Book> selectOneclassificationBook(Integer classificationId);
 }

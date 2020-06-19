@@ -1,11 +1,8 @@
 package com.ctgu.javakeshe.service.impl;
 
 import com.ctgu.javakeshe.dao.OrderDetailDao;
-import com.ctgu.javakeshe.entity.Order;
 import com.ctgu.javakeshe.entity.OrderDetail;
 import com.ctgu.javakeshe.service.OrderDetailService;
-import com.ctgu.javakeshe.service.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -35,4 +32,5 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     public List<OrderDetail> selectByOrderId(Integer order){
         return orderDetaiolDao.selectByOrderId(order);
     }
+
 }

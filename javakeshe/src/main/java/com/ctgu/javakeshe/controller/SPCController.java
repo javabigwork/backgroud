@@ -1,10 +1,8 @@
 package com.ctgu.javakeshe.controller;
 
 
-import com.ctgu.javakeshe.entity.Address;
-import com.ctgu.javakeshe.entity.Order;
-import com.ctgu.javakeshe.entity.OrderDetail;
-import com.ctgu.javakeshe.entity.ShoppingCar;
+import com.ctgu.javakeshe.dao.DetailDTODao;
+import com.ctgu.javakeshe.entity.*;
 import com.ctgu.javakeshe.filter.AjaxResult;
 import com.ctgu.javakeshe.service.*;
 import com.ctgu.javakeshe.util.TimeGet;
@@ -27,13 +25,15 @@ public class SPCController {
     private BookService bookService;
     @Resource
     private AddressService addressService;
-
+    @Resource
+    private DetailDTODao detailDTODao;
     @RequestMapping("/deleteAll")
     public AjaxResult deleteAll(String openid){
         try {
             spcService.deleteAll(openid);
             return AjaxResult.success();
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.success();
         }
     }
@@ -44,6 +44,7 @@ public class SPCController {
             spcService.deleteOne(id);
             return AjaxResult.success();
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
@@ -64,6 +65,7 @@ public class SPCController {
             spcService.minusCount(id);
             return AjaxResult.success();
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
@@ -74,6 +76,7 @@ public class SPCController {
             spcService.addSPC(SPC);
             return AjaxResult.success();
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
@@ -81,9 +84,10 @@ public class SPCController {
     @RequestMapping("/selectAll")
     public AjaxResult selectAll(String openid){
         try{
-            List list=spcService.selectAll(openid);
+            List<ShoppingCar> list=spcService.selectAll(openid);
             return AjaxResult.success("查找成功",list);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
@@ -93,6 +97,7 @@ public class SPCController {
                                @RequestBody @RequestParam("buylist")List<Integer> buy){
        String time= TimeGet.timeget();
         try {
+            DetailPage detailPage=new DetailPage();
             Double total=0.0;
             List<ShoppingCar> list3=null;
             for(Integer i:buy){
@@ -102,9 +107,15 @@ public class SPCController {
                 list3.add(spc);
             }
             List<Address> add=addressService.selectByOpenId(openid);
-            Address ad= add.get(0);
-            orderService.addOrder(new Order(openid,0, total, time, ad.getId()));
-            Order order=orderService.selectByOpenIdAndTime(openid,time);
+            Order order=null;
+            if(add.isEmpty()) {
+                detailPage.setAddress(null);
+                order =new Order(openid,0, total, time, 0);
+            }else{
+                detailPage.setAddress(add.get(0));
+                order=new Order(openid,0, total, time, add.get(0).getId());
+            }
+            orderService.addOrder(order);
             for(ShoppingCar s:list3){
                 orderDetailService.addDetail(new OrderDetail(s.getIsbn(),
                         openid, order.getOrderid(), s.getCount()));
@@ -113,9 +124,26 @@ public class SPCController {
             for(Integer i:buy){
                 spcService.deleteOne(i);
             }
-            return AjaxResult.success("success",add.get(0));
+            List<DetailDTO> dlist=detailDTODao.selectDetailDTO(order.getOrderid());
+            detailPage.setOrderid(order.getOrderid());
+            detailPage.setDetailDTO(dlist);
+            detailPage.setMoney(total);
+            return AjaxResult.success("success",detailPage);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
+
+    @RequestMapping("/selectShoppingCar")
+    public AjaxResult selectShoppingCar(@RequestParam("openId") String openId){
+        System.out.println("请求购物车");
+        List<ShoppingCar> shoppingCarList = spcService.selectShoppingCar(openId);
+        for (int i = 0; i < shoppingCarList.size() ; i++) {
+            shoppingCarList.get(i).setOpenid(openId);
+        }
+        return AjaxResult.success("成功",shoppingCarList);
+    }
+
+
 }
