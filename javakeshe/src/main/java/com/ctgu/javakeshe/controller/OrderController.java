@@ -129,7 +129,6 @@ public class OrderController {
             money=book.getBookNewPrice()*num;
             List<Address> list=adressService.selectByOpenId(openid);
             String time= TimeGet.timeget();
-<<<<<<< HEAD
             Order order=null;
             if(list.isEmpty()){
                 detailPage.setAddress(null);
@@ -139,11 +138,8 @@ public class OrderController {
                 order=new Order(openid,0, money, time,list.get(0).getId());
             }
             orderService.addOrder(order);
-=======
             orderService.addOrder(new Order(openid,0,money,time,list.get(0).getId()));
-            Order order=orderService.selectByOpenIdAndTime(openid,time);
-            OrderDetail orderDetail=new OrderDetail();
->>>>>>> lc
+            order=orderService.selectByOpenIdAndTime(openid,time);
             orderDetailService.addDetail(new OrderDetail(isbn, openid, order.getOrderid(),  num));
             detailPage.setMoney(money);
             detailPage.setOrderid(order.getOrderid());
@@ -151,13 +147,9 @@ public class OrderController {
             detailPage.setDetailDTO(detailDTO);
             return AjaxResult.success("success",detailPage);
         }catch (Exception e){
-<<<<<<< HEAD
             e.printStackTrace();
             System.out.println(e.getMessage());
          return AjaxResult.fail();
-=======
-            return AjaxResult.fail();
->>>>>>> lc
         }
     }
 
@@ -172,7 +164,6 @@ public class OrderController {
         }
     }
 
-<<<<<<< HEAD
     @RequestMapping("/unpay")
     public AjaxResult unpay(String openid){
         try{
@@ -184,6 +175,4 @@ public class OrderController {
             return AjaxResult.fail();
         }
     }
-=======
->>>>>>> lc
 }

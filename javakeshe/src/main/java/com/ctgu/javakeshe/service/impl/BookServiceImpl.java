@@ -53,12 +53,10 @@ public class BookServiceImpl implements BookService {
         bookDao.addBookImg(bookImgMap);
     }
 
-<<<<<<< HEAD
 
-=======
     @Override
     public List<Book> selectOneclassificationBook(Integer classificationId) {
         return bookDao.selectOneclassificationBook(classificationId);
     }
->>>>>>> lc
+
 }

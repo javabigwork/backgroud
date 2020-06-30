@@ -32,27 +32,19 @@
   <update id="getCargo" parameterType="Integer">
       update `order` set order_status=2 where order_id=#{orderid};
   </update>
-<<<<<<< HEAD
     <update id="updateStatusAuto" parameterType="Integer">
         update `order` set order_status=order_status+1 where order_id=#{orderid}
     </update>
     <select id="selectByStatus" resultMap="OrderResultMap">
         select * from `order` where open_id=#{openid} and order_status=#{status};
     </select>
- <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order" useGeneratedKeys="true" keyProperty="orderid">
-     insert `order`(`open_id`,`order_status`,`order_price`,`order_date`,`add_id`)
-     values(#{openid},#{status},#{price},#{date},#{addid});
- </insert>
-    <select id="selectByOpenIdAndTime" resultType="com.ctgu.javakeshe.entity.Order">
-        select * from `order` where open_id=#{openid} and order_date=#{time}
-=======
+
  <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
      insert `order`(`open_id`,`order_status`,`order_price`,`order_date`,`add_id`)
      values(#{openid},#{status},#{price},#{date},#{addid});
  </insert>
     <select id="selectByOpenIdAndTime" resultMap="OrderResultMap">
         select * from `order` where open_id=#{openid},order_date=#{time}
->>>>>>> lc
     </select>
     <select id="selectAll" resultMap="OrderResultMap">
         select * from

@@ -14,28 +14,17 @@
         <result property="bookStock" column="book_stock" />
         <result property="bookContent" column="book_content" />
         <result property="bookSalesVolume" column="book_sales_volume" />
-<<<<<<< HEAD
-=======
-
         <association property="classification" javaType="com.ctgu.javakeshe.entity.Classification">
             <id property="classificationId" column="classification_id" />
             <result property="classificationName" column="classification_name" />
         </association>
-
->>>>>>> lc
         <collection property="bookImgList" javaType="list" ofType="com.ctgu.javakeshe.entity.BookImg">
             <id property="id" column="id"/>
             <result property="isbn" column="isbn"/>
             <result property="url" column="url"/>
             <result property="sort" column="sort"/>
         </collection>
-
-
-
     </resultMap>
-
-
-
     <select id="selectAll" resultMap="bookResultMap">
         select
         b.isbn,

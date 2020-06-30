@@ -100,11 +100,7 @@ public class ShoppingCar {
         return price;
     }
 
-<<<<<<< HEAD
-    public ShoppingCar(Integer id, String isbn, Integer count, String openid, Double price) {
-=======
     public ShoppingCar(Integer id, String isbn, Integer count, String openid, Double price, String bookName, String bookTitle, String bookImgPath, Integer isSelect) {
->>>>>>> lc
         this.id = id;
         this.isbn = isbn;
         this.count = count;
