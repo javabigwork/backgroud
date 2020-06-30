@@ -1,6 +1,8 @@
 package com.ctgu.javakeshe.entity;
 
 
+import java.util.Date;
+
 public class Order {
     private Integer orderid;
     private String openid;
@@ -9,18 +11,9 @@ public class Order {
     private String date;
     private Integer addid;
     private String transportDay;
+    private Address address;
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "orderid=" + orderid +
-                ", openid='" + openid + '\'' +
-                ", status=" + status +
-                ", price=" + price +
-                ", date='" + date + '\'' +
-                ", addid=" + addid +'\''+
-                ",transportDay="+transportDay+
-                '}';
+    public Order() {
     }
 
     public void setOrderid(Integer orderid) {
@@ -90,5 +83,37 @@ public class Order {
         this.date = date;
         this.addid = addid;
     }
-    public Order(){}
+
+    public Order(Integer orderid, String openid, Integer status, Double price, String date, Integer addid, String transportDay, Address address) {
+        this.orderid = orderid;
+        this.openid = openid;
+        this.status = status;
+        this.price = price;
+        this.date = date;
+        this.addid = addid;
+        this.transportDay = transportDay;
+        this.address = address;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderid=" + orderid +
+                ", openid='" + openid + '\'' +
+                ", status=" + status +
+                ", price=" + price +
+                ", date='" + date + '\'' +
+                ", addid=" + addid +
+                ", transportDay='" + transportDay + '\'' +
+                ", address=" + address +
+                '}';
+    }
 }

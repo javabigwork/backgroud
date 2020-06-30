@@ -7,8 +7,18 @@
             <result property="status" column="order_status"/>
             <result property="price" column="order_price"/>
             <result property="date" column="order_date"/>
-        <result property="transportDay" column="transportDay"/>
-        <result property="addid" column="add_id"/>
+            <result property="transportDay" column="transportDay"/>
+            <result property="addid" column="add_id"/>
+            <association property="address" javaType="com.ctgu.javakeshe.entity.Address">
+                <id property="id" column="id" />
+                <result property="consignee" column="consignee" />
+                <result property="province" column="provinceName" />
+                <result property="city" column="cityName" />
+                <result property="country" column="countyName" />
+                <result property="detail" column="detail_address" />
+                <result property="openid" column="open_id" />
+                <result property="phone" column="mobile" />
+            </association>
     </resultMap>
 <select id="selectByOpenId" resultMap="OrderResultMap" parameterType="String">
     select * from `order` where open_id=#{openid};
@@ -22,17 +32,33 @@
   <update id="getCargo" parameterType="Integer">
       update `order` set order_status=2 where order_id=#{orderid};
   </update>
+    <update id="updateStatusAuto" parameterType="Integer">
+        update `order` set order_status=order_status+1 where order_id=#{orderid}
+    </update>
+    <select id="selectByStatus" resultMap="OrderResultMap">
+        select * from `order` where open_id=#{openid} and order_status=#{status};
+    </select>
+
  <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
-     insert `order`(`open_id`,`order_status`,`order_price`,`order_date`,`add_id`)`
-     values(#{openid},#{status},#{price},#{time},#{addid});
+     insert `order`(`open_id`,`order_status`,`order_price`,`order_date`,`add_id`)
+     values(#{openid},#{status},#{price},#{date},#{addid});
  </insert>
-    <select id="selectByOpenIdAndTime">
+    <select id="selectByOpenIdAndTime" resultMap="OrderResultMap">
         select * from `order` where open_id=#{openid},order_date=#{time}
     </select>
     <select id="selectAll" resultMap="OrderResultMap">
-        select * from `order`;
+        select * from
+        `order` o
+        inner join address a
+        on o.add_id = a.id
+    </select>
+    <select id="selectUnPay" resultMap="OrderResultMap">
+        select * from `order` where open_id=#{openid} and order_status=0;
     </select>
     <update id="setTransportDay">
         update `order` set transportDay=#{transportDay} where order_id=#{id};
     </update>
+    <select id="selectStatus" resultMap="OrderResultMap">
+        select * from `order` where open_id=#{openid} and order_status=#{status};
+    </select>
 </mapper>

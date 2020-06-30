@@ -18,5 +18,4 @@
     <select id="selectByOrderId" resultMap="OrderDetailMap">
         select * from order_detail where order_id=#{orderid};
     </select>
-    
 </mapper>

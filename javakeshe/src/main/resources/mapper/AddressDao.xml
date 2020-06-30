@@ -11,14 +11,14 @@
         <result property="openid" column="open_id"/>
         <result property="phone" column="mobile"/>
     </resultMap>
-    <select id="selectByOpenId" resultMap="AddressResultMap" parameterType="String">
+    <select id="selectByOpenId" resultMap="AddressResultMap" parameterType="java.lang.String">
         select * from address where open_id=#{openid};
     </select>
     <insert id="insertAddress" parameterType="com.ctgu.javakeshe.entity.Address">
         insert `address`(`consignee`,`mobile`,`provinceName`,`cityName`,`countyName`,`detail_address`,`open_id`)
         values(#{consignee},#{phone},#{province},#{city},#{country},#{detail},#{openid});
     </insert>
-<delete id="deleteById" parameterType="Integer">
+    <delete id="deleteById" parameterType="Integer">
     delete from address where id=#{id};
 </delete>
 </mapper>

@@ -2,21 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ctgu.javakeshe.dao.CollectDao">
 
-    <resultMap id="collectResultMap" type="com.ctgu.javakeshe.entity.Collect" >
-        <id property="id" column="id"/>
-        <result property="openId" column="open_id"/>
-        <result property="isbn" column="isbn"/>
-    </resultMap>
 
- <select id="selectAllByOpen_id"  resultMap="collectResultMap" parameterType="String">
-        select * from collect where open_id=#{openId};
+ <select id="selectAllByOpen_id"  resultType="com.ctgu.javakeshe.entity.CollectDTO" parameterType="String">
+        select
+        distinct b.isbn as isbn,
+        c.id as id,
+        c.date as date,
+        b.book_title as bookTitle,
+        b.book_name as bookName,
+        bi.url as url,
+        b.book_new_price as bookPrice
+        from
+        book b inner join book_img bi
+        on b.isbn=bi.isbn
+        inner join collect c
+        on b.isbn=c.isbn
+        where open_id=#{openId} and bi.sort=1
+        order by c.date desc;
 </select>
 
-<insert id="addCollect" parameterType="Map">
-    insert into collect(open_id,isbn) values (#{openId},#{isbn});
+<insert id="addCollect" parameterType="com.ctgu.javakeshe.entity.Collect">
+    insert into collect(open_id,isbn,date) values (#{openId},#{isbn},#{date});
 </insert>
 
 <delete id="deleteCollect" parameterType="int">
-    delete from collect where id={#id};
+    delete  from collect where id=#{id};
 </delete>
+<select id="selectIfCollect" resultType="com.ctgu.javakeshe.entity.Collect" parameterType="String">
+       select * from collect where open_id=#{openId} and isbn=#{isbn};
+</select>
+
 </mapper>

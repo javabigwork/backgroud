@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctgu.javakeshe.dao.ClassificationDao">
+
+    <resultMap id="classificationResuleMap" type="com.ctgu.javakeshe.entity.Classification">
+        <id property="classificationId" column="classification_id"/>
+        <result property="classificationName" column="classification_name" />
+    </resultMap>
+
+
+    <select id="selectclassification" resultMap="classificationResuleMap">
+        select * from classification
+    </select>
+
+    <insert id="addclassification" parameterType="com.ctgu.javakeshe.entity.Classification">
+        insert into classification(classification_name) values (#{classificationName})
+    </insert>
+
+    <update id="updateclassification">
+        update classification set classification_name = #{classificationName}
+        where classification_id = #{classificationId}
+    </update>
+
+    <delete id="deleteclassification" parameterType="Integer">
+        delete from classification where classification_id = #{classificationId}
+    </delete>
+
+    <select id="selectnumofclassification" resultType="com.ctgu.javakeshe.entity.ClassificationNUm">
+        select classification_name as classificationName,count(classification_id) as classificationNum
+        from classification c
+        inner join book b
+        on b.book_category_id = c.classification_id
+        group by classification_id;
+    </select>
+
+    <select id="selectoneclassification" resultMap="classificationResuleMap">
+        select * from classification where classification_id = #{classificationId}
+    </select>
+</mapper>
