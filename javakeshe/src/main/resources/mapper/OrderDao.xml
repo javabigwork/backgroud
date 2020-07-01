@@ -39,7 +39,7 @@
         select * from `order` where open_id=#{openid} and order_status=#{status};
     </select>
 
- <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
+ <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order" keyProperty="orderid" useGeneratedKeys="true">
      insert `order`(`open_id`,`order_status`,`order_price`,`order_date`,`add_id`)
      values(#{openid},#{status},#{price},#{date},#{addid});
  </insert>

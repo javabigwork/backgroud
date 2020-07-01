@@ -12,7 +12,7 @@ public interface OrderDao {
     List<Order> selectByOpenId(String openid);
     List<Order> selectByOrderId(Integer orderid);
     void updateStatus(Integer orderid);
-    Order addOrder(Order order);
+    void addOrder(Order order);
     Order selectByOpenIdAndTime(@Param("openid")String openid,@Param("time")String time);
     void getCargo(Integer orderid);
     List<Order> selectAll();

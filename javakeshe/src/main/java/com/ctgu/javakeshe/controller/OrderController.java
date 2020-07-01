@@ -138,8 +138,6 @@ public class OrderController {
                 order=new Order(openid,0, money, time,list.get(0).getId());
             }
             orderService.addOrder(order);
-            orderService.addOrder(new Order(openid,0,money,time,list.get(0).getId()));
-            order=orderService.selectByOpenIdAndTime(openid,time);
             orderDetailService.addDetail(new OrderDetail(isbn, openid, order.getOrderid(),  num));
             detailPage.setMoney(money);
             detailPage.setOrderid(order.getOrderid());

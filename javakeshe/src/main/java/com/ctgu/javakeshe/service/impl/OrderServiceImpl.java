@@ -26,8 +26,8 @@ public class OrderServiceImpl implements OrderService {
         orderDao.updateStatus(openid);
     }
     @Override
-    public Order addOrder(Order order){
-        return orderDao.addOrder(order);
+    public void addOrder(Order order){
+        orderDao.addOrder(order);
     }
 
     @Override
