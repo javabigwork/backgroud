@@ -137,7 +137,6 @@ public class SPCController {
 
     @RequestMapping("/selectShoppingCar")
     public AjaxResult selectShoppingCar(@RequestParam("openId") String openId){
-        System.out.println("请求购物车");
         List<ShoppingCar> shoppingCarList = spcService.selectShoppingCar(openId);
         for (int i = 0; i < shoppingCarList.size() ; i++) {
             shoppingCarList.get(i).setOpenid(openId);

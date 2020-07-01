@@ -38,8 +38,7 @@ select * from shopping_car where open_id=#{openid};
         sc.count as count,
         sc.price as price,
         bi.url as bookImgPath,
-        b.isbn as isbn,
-        sc.is_select as isSelect
+        b.isbn as isbn
         from shopping_car sc inner join book b
         on sc.isbn = b.isbn
         inner join book_img bi
