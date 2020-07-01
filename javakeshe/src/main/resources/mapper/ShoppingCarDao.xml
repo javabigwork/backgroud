@@ -10,10 +10,10 @@
         <result property="openid" column="open_id" />
         <result property="price" column="price"/>
     </resultMap>
-<select id="selectAll" resultMap="SPCResultMap" parameterType="Integer">
+<select id="selectAll" resultType="com.ctgu.javakeshe.entity.ShoppingCar" parameterType="String">
 select * from shopping_car where open_id=#{openid};
 </select>
-<delete id="deleteAll" parameterType="Integer">
+<delete id="deleteAll" parameterType="String">
     delete from shopping_car where open_id=#{openid};
 </delete>
 <delete id="deleteOne" parameterType="Integer">
@@ -26,7 +26,7 @@ select * from shopping_car where open_id=#{openid};
      update shopping_car set count=count-1 where id=#{id};
  </update>
   <insert id="addSPC" parameterType="com.ctgu.javakeshe.entity.ShoppingCar">
-    insert into `shopping_car`(`isbn`,`count`,`open_id`) values(#{isbn},#{count},#{openid});
+    insert into `shopping_car`(`isbn`,`count`,`open_id`,`price`) values(#{isbn},#{count},#{openid},#{price});
   </insert>
     <select id="selectById" resultType="com.ctgu.javakeshe.entity.ShoppingCar" parameterType="Integer">
         select * from shopping_car where id=#{id};
@@ -38,8 +38,7 @@ select * from shopping_car where open_id=#{openid};
         sc.count as count,
         sc.price as price,
         bi.url as bookImgPath,
-        b.isbn as isbn,
-        sc.is_select as isSelect
+        b.isbn as isbn
         from shopping_car sc inner join book b
         on sc.isbn = b.isbn
         inner join book_img bi

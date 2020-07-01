@@ -32,7 +32,14 @@
   <update id="getCargo" parameterType="Integer">
       update `order` set order_status=2 where order_id=#{orderid};
   </update>
- <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order">
+    <update id="updateStatusAuto" parameterType="Integer">
+        update `order` set order_status=order_status+1 where order_id=#{orderid}
+    </update>
+    <select id="selectByStatus" resultMap="OrderResultMap">
+        select * from `order` where open_id=#{openid} and order_status=#{status};
+    </select>
+
+ <insert id="addOrder" parameterType="com.ctgu.javakeshe.entity.Order" keyProperty="orderid" useGeneratedKeys="true">
      insert `order`(`open_id`,`order_status`,`order_price`,`order_date`,`add_id`)
      values(#{openid},#{status},#{price},#{date},#{addid});
  </insert>
@@ -45,7 +52,13 @@
         inner join address a
         on o.add_id = a.id
     </select>
+    <select id="selectUnPay" resultMap="OrderResultMap">
+        select * from `order` where open_id=#{openid} and order_status=0;
+    </select>
     <update id="setTransportDay">
         update `order` set transportDay=#{transportDay} where order_id=#{id};
     </update>
+    <select id="selectStatus" resultMap="OrderResultMap">
+        select * from `order` where open_id=#{openid} and order_status=#{status};
+    </select>
 </mapper>

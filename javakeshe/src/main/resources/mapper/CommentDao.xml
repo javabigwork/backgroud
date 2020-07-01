@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctgu.javakeshe.dao.CommentDao">
+
+    <resultMap type="com.ctgu.javakeshe.entity.CommentDTO" id="commentDTOResultMap">
+        <id property="id" column="id"/>
+        <result property="openId" column="open_id" />
+        <result property="isbn" column="isbn" />
+        <result property="content" column="content" />
+        <result property="commentDate" column="comment_date" />
+
+        <association property="user" javaType="com.ctgu.javakeshe.entity.User">
+            <!-- id:声明主键，表示user_id是关联查询对象的唯一标识-->
+            <id property="openId" column="open_id"/>
+            <result property="nickName" column="nick_name" />
+            <result property="lastLoginTime" column="last_login_time" />
+            <result property="avatarUrl" column="avatar_url" />
+        </association>
+    </resultMap>
+
+    <select id="selectCommentAndUser" resultMap="commentDTOResultMap">
+        select
+        *
+        from comment c inner join user u
+        on c.open_id = u.open_id
+    </select>
+
+    <select id="selectCommentAndUserByIsbn" resultMap="commentDTOResultMap" parameterType="java.lang.String">
+        select
+        *
+        from comment c inner join user u
+        on c.open_id = u.open_id
+        where
+        isbn = #{isbn}
+    </select>
+
+    <insert id="insertComment" parameterType="com.ctgu.javakeshe.entity.Comment" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO comment
+		(open_id,
+		isbn,
+		content,
+		comment_date)
+		values
+		(#{openId},
+		#{isbn},
+		#{content},
+		#{commentDate})
+    </insert>
+
+    <delete id="deleteComment" parameterType="java.lang.Integer">
+        delete from comment where id = #{id}
+    </delete>
+</mapper>

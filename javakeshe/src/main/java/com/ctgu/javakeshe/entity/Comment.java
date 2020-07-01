@@ -1,33 +1,27 @@
 package com.ctgu.javakeshe.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
-/**
- * @author 朱颖
- * @version 0.0
- * @date 2020/6/15 0:31
- */
-public class Collect {
-    private int id;
+public class Comment {
+    private Integer id;
     private String openId;
     private String isbn;
-    private String date;
+    private String content;
+    private Date commentDate;
 
-    public Collect() {
+    public String getContent() {
+        return content;
     }
 
-    public Collect(int id, String openId, String isbn, String date) {
-        this.id = id;
-        this.openId = openId;
-        this.isbn = isbn;
-        this.date = date;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,21 +41,22 @@ public class Collect {
         this.isbn = isbn;
     }
 
-    public String getDate() {
-        return date;
+    public Date getCommentDate() {
+        return commentDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCommentDate(Date commentDate) {
+        this.commentDate = commentDate;
     }
 
     @Override
     public String toString() {
-        return "Collect{" +
+        return "Comment{" +
                 "id=" + id +
                 ", openId='" + openId + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", date='" + date + '\'' +
+                ", content='" + content + '\'' +
+                ", commentDate=" + commentDate +
                 '}';
     }
 }

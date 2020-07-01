@@ -1,13 +1,16 @@
 package com.ctgu.javakeshe.controller;
 
 import com.ctgu.javakeshe.entity.Collect;
+import com.ctgu.javakeshe.entity.CollectDTO;
 import com.ctgu.javakeshe.filter.AjaxResult;
 import com.ctgu.javakeshe.service.CollectService;
 
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,11 +26,9 @@ public class CollectController {
     private CollectService collectService;
 
     @RequestMapping("/selectAll")
-    public AjaxResult selectAll(@RequestParam("open_id")String open_id){
-        System.out.println("good");
-        List<Collect> collectList=new ArrayList<>();
-        collectList=collectService.selectAllByOpen_id(open_id);
-        return  AjaxResult.success("成功",collectList);
+    public AjaxResult selectAll(@RequestParam("openId")String openId){
+        List<CollectDTO> collectList=collectService.selectAllByOpen_id(openId);
+        return  AjaxResult.success("成功了吗",collectList);
     }
 
     @GetMapping("/deleteCollect")
@@ -36,9 +37,9 @@ public class CollectController {
         return AjaxResult.success("成功","success");
     }
 
-    @PostMapping("/addCollect")
-    public  AjaxResult addCollection(Collect collect){
-        collectService.addCollect(collect.getOpen_id(),collect.getIsbn());
+    @GetMapping("/addCollect")
+    public  AjaxResult addCollection(@RequestParam("openId")String openId,@RequestParam("isbn")String isbn){
+        collectService.addCollect(openId,isbn);
         return AjaxResult.success("成功","success");
     }
 }

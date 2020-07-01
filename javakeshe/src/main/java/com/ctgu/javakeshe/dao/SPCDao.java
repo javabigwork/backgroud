@@ -13,7 +13,7 @@ public interface SPCDao {
     void addCount (Integer id);
     void minusCount(Integer id);
     void addSPC(ShoppingCar SPC);
-    List<ShoppingCar> selectAll();
+    List<ShoppingCar> selectAll(String openid);
     ShoppingCar selectById(Integer id);
 
     List<ShoppingCar> selectShoppingCar(String openId);

@@ -3,10 +3,7 @@ package com.ctgu.javakeshe.controller;
 
 import com.ctgu.javakeshe.entity.*;
 import com.ctgu.javakeshe.filter.AjaxResult;
-import com.ctgu.javakeshe.service.AddressService;
-import com.ctgu.javakeshe.service.BookService;
-import com.ctgu.javakeshe.service.OrderDetailService;
-import com.ctgu.javakeshe.service.OrderService;
+import com.ctgu.javakeshe.service.*;
 import com.ctgu.javakeshe.util.TimeGet;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +22,9 @@ public class OrderController {
     private OrderService orderService;
     @Resource
     private OrderDetailService orderDetailService;
+
+    @Resource
+    private DetailDTOService detailDTOService;
     @RequestMapping("/addOrder")
     public AjaxResult addOrder(@RequestBody Order order){
         try {
@@ -41,6 +41,36 @@ public class OrderController {
             orderService.updateStatus(orderid);
             return AjaxResult.success();
         }catch (Exception e){
+            return AjaxResult.fail();
+        }
+    }
+
+    @RequestMapping("/updateStatus")
+    public AjaxResult updateStatus(Integer orderid){
+        try {
+            orderService.updateStatusAuto(orderid);
+            return AjaxResult.success();
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return AjaxResult.fail();
+        }
+    }
+
+    @RequestMapping("/selectByStatus")
+    public AjaxResult selectByStatus(@RequestParam("openId")String openid,
+                                     @RequestParam("status")Integer status){
+
+        try{List<DetailDTO> list=null;
+                if(status==-1){
+                    list=detailDTOService.selectAll(openid);
+                }else {
+                    list = detailDTOService.selectByStatus(openid, status);
+                }
+                return AjaxResult.success("success",list);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
             return AjaxResult.fail();
         }
     }
@@ -93,18 +123,31 @@ public class OrderController {
                              @RequestParam("isbn")String isbn,
                              @RequestParam("num")Integer num){
         try {
+            DetailPage detailPage=new DetailPage();
             Book book = bookService.selectOneBook(isbn);
             Double money=0.0;
             money=book.getBookNewPrice()*num;
             List<Address> list=adressService.selectByOpenId(openid);
             String time= TimeGet.timeget();
-            orderService.addOrder(new Order(openid,0,money,time,list.get(0).getId()));
-            Order order=orderService.selectByOpenIdAndTime(openid,time);
-            OrderDetail orderDetail=new OrderDetail();
+            Order order=null;
+            if(list.isEmpty()){
+                detailPage.setAddress(null);
+                order=new Order(openid,0, money, time,0);
+            }else{
+                detailPage.setAddress(list.get(0));
+                order=new Order(openid,0, money, time,list.get(0).getId());
+            }
+            orderService.addOrder(order);
             orderDetailService.addDetail(new OrderDetail(isbn, openid, order.getOrderid(),  num));
-            return AjaxResult.success("success",list.get(0));
+            detailPage.setMoney(money);
+            detailPage.setOrderid(order.getOrderid());
+            List<DetailDTO> detailDTO=detailDTOService.selectDetailDTO(order.getOrderid());
+            detailPage.setDetailDTO(detailDTO);
+            return AjaxResult.success("success",detailPage);
         }catch (Exception e){
-            return AjaxResult.fail();
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+         return AjaxResult.fail();
         }
     }
 
@@ -120,4 +163,15 @@ public class OrderController {
         }
     }
 
+    @RequestMapping("/unpay")
+    public AjaxResult unpay(String openid){
+        try{
+            List<Order> list=orderService.selectUnPay(openid);
+            System.out.println(list);
+            return AjaxResult.success("success",list);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return AjaxResult.fail();
+        }
+    }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctgu.javakeshe.dao.IndexImgDao">
+
+    <resultMap id="indexImgResultMap" type="com.ctgu.javakeshe.entity.IndexImg" >
+        <id property="id" column="id"/>
+        <result property="url" column="url"/>
+        <result property="type" column="type"/>
+        <result property="title" column="title"/>
+    </resultMap>
+
+    <select id="selectAllByType"  resultMap="indexImgResultMap" parameterType="int">
+        select * from index_img where `type`=#{type};
+</select>
+
+<!--    <insert id="addIndexImg" parameterType="Map">-->
+<!--    insert into index_img(`id`,`url`,`type`,`title`) values (#{id},#{url},#{type},#{title});-->
+<!--</insert>-->
+
+    <delete id="deleteById" parameterType="int">
+    delete from index_img where id={#id};
+</delete>
+</mapper>
