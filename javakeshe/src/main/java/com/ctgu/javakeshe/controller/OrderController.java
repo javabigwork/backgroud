@@ -110,6 +110,7 @@ public class OrderController {
 
     @RequestMapping("/select")
     public AjaxResult select(){
+        System.out.println(111);
         try{
             List<Order> list=orderService.selectAll();
             return AjaxResult.success("success",list);

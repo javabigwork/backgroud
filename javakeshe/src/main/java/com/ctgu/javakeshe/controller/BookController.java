@@ -26,6 +26,7 @@ public class BookController {
         return AjaxResult.success("成功",bookList);
     }
 
+
     @RequestMapping("/selectOneBook")
     public AjaxResult selectOneBook(@RequestParam(value = "isbn") String isbn){
         System.out.println(isbn);
@@ -66,4 +67,6 @@ public class BookController {
         List<Book> bookList = bookService.selectOneclassificationBook(classificationId);
         return AjaxResult.success("成功",bookList);
     }
+
+
 }

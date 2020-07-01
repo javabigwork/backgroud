@@ -2,8 +2,23 @@ package com.ctgu.javakeshe.entity;
 
 public class Admin {
     private Integer id;
-    private String name;
+    private String username;
     private String password;
+
+    public Admin(Integer id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -13,12 +28,12 @@ public class Admin {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -26,21 +41,6 @@ public class Admin {
     }
 
     public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-
-    public Admin(Integer id, String name, String password) {
-        this.id = id;
-        this.name = name;
         this.password = password;
     }
 

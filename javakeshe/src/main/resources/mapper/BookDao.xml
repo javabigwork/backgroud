@@ -125,4 +125,5 @@
         on b.isbn = bi.isbn
         where b.book_category_id = #{classificationId}
     </select>
+
 </mapper>

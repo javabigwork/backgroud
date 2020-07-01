@@ -3,6 +3,6 @@
 <mapper namespace="com.ctgu.javakeshe.dao.AdminDao">
 
     <select id="login" resultType="com.ctgu.javakeshe.entity.Admin">
-        select * from admin where name = #{name} and password = #{password}
+        select * from admin where name = #{username} and password = #{password}
     </select>
 </mapper>

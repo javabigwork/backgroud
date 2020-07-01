@@ -16,12 +16,17 @@ public class AdminController {
     private AdminService adminService;
 
     @RequestMapping("/login")
-    public AjaxResult login(Admin admin){
+    public AjaxResult login(@RequestBody Admin admin){
         Admin newAdmin = adminService.login(admin);
         if(newAdmin == null){
             return AjaxResult.fail("失败","fail");
         }else{
             return AjaxResult.success("成功","success");
         }
+    }
+
+    @RequestMapping("/info")
+    public AjaxResult login(){
+        return AjaxResult.success("成功","success");
     }
 }
