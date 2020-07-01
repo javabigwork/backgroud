@@ -25,16 +25,8 @@ public class ShoppingCar {
     private String bookName;
     private String bookTitle;
     private String bookImgPath;
-    private Integer isSelect;
 
 
-    public Integer getSelect() {
-        return isSelect;
-    }
-
-    public void setSelect(Integer select) {
-        isSelect = select;
-    }
 
     public String getBookName() {
         return bookName;
@@ -100,7 +92,7 @@ public class ShoppingCar {
         return price;
     }
 
-    public ShoppingCar(Integer id, String isbn, Integer count, String openid, Double price, String bookName, String bookTitle, String bookImgPath, Integer isSelect) {
+    public ShoppingCar(Integer id, String isbn, Integer count, String openid, Double price, String bookName, String bookTitle, String bookImgPath) {
         this.id = id;
         this.isbn = isbn;
         this.count = count;
@@ -109,7 +101,6 @@ public class ShoppingCar {
         this.bookName = bookName;
         this.bookTitle = bookTitle;
         this.bookImgPath = bookImgPath;
-        this.isSelect = isSelect;
     }
 
     public ShoppingCar() {
@@ -126,7 +117,6 @@ public class ShoppingCar {
                 ", bookName='" + bookName + '\'' +
                 ", bookTitle='" + bookTitle + '\'' +
                 ", bookImgPath='" + bookImgPath + '\'' +
-                ", isSelect=" + isSelect +
                 '}';
     }
 }
