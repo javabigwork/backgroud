@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d8fabbe-1d33-4980-852b-b3578ec3271d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javakeshe/src/main/java/com/ctgu/javakeshe/controller/SPCController.java" beforeDir="false" afterPath="$PROJECT_DIR$/javakeshe/src/main/java/com/ctgu/javakeshe/controller/SPCController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javakeshe/src/main/java/com/ctgu/javakeshe/dao/SPCDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/javakeshe/src/main/java/com/ctgu/javakeshe/dao/SPCDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javakeshe/src/main/java/com/ctgu/javakeshe/entity/ShoppingCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/javakeshe/src/main/java/com/ctgu/javakeshe/entity/ShoppingCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javakeshe/src/main/java/com/ctgu/javakeshe/service/impl/SPCServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/javakeshe/src/main/java/com/ctgu/javakeshe/service/impl/SPCServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javakeshe/src/main/resources/mapper/ShoppingCarDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javakeshe/src/main/resources/mapper/ShoppingCarDao.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3d8fabbe-1d33-4980-852b-b3578ec3271d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +102,7 @@
       <workItem from="1592309314237" duration="23000" />
       <workItem from="1592332586524" duration="7000" />
       <workItem from="1592337972249" duration="3000" />
+      <workItem from="1593594628143" duration="8000" />
     </task>
     <servers />
   </component>

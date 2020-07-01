@@ -12,6 +12,8 @@
         <result property="bookName" column="book_name"/>
         <result property="bookTitle" column="book_title"/>
         <result property="bookAuthor" column="book_author"/>
+        <result property="bookOldPrice" column="book_old_price" />
+        <result property="bookNewPrice" column="book_new_price" />
     </association>
     <collection property="bookImg" javaType="list" ofType="com.ctgu.javakeshe.entity.BookImg">
         <id property="id" column="id"/>
